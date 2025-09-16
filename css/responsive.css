@@ -10,27 +10,27 @@
 }
 
 #oicot .topbox {
-    background-color: #cddaec; /* 白に近いブルー */
+    background-color: #c9d9ed; /* メインカラーに統一 */
     transition: background-color 0.8s ease;
 }
 
 #sns .topbox {
-    background-color: #d1dff0; /* ベースカラー */
+    background-color: #c9d9ed; /* メインカラーに統一 */
     transition: background-color 0.8s ease;
 }
 
 #news .topbox {
-    background-color: #c4d5e8; /* 白に近いブルー */
+    background-color: #c9d9ed; /* メインカラーに統一 */
     transition: background-color 0.8s ease;
 }
 
 #works .topbox {
-    background-color: #d6e3f2; /* ベースカラー */
+    background-color: #c9d9ed; /* メインカラーに統一 */
     transition: background-color 0.8s ease;
 }
 
 #contact .topbox {
-    background-color: #c0d1e5; /* 白に近いブルー */
+    background-color: #c9d9ed; /* メインカラーに統一 */
     transition: background-color 0.8s ease;
 }
 
@@ -60,6 +60,11 @@
         padding: 80px;
     }
     
+    .topbox {
+        padding: 30px 400px; /* 大画面では左右の画像を考慮してさらに余白を増加 */
+        max-width: 1600px;
+    }
+    
     .pc-slider-container {
         width: 480px;
         height: 560px;
@@ -80,6 +85,7 @@
         width: 320px;
         height: 420px;
         top: 60px;
+        z-index: 9999;
     }
     
     .imgR {
@@ -87,6 +93,7 @@
         width: 320px;
         height: 420px;
         top: 100px;
+        z-index: 9999;
     }
 }
 
@@ -94,6 +101,11 @@
 @media (min-width: 1024px) and (max-width: 1399px) {
     .pcbody {
         padding: 50px;
+    }
+    
+    .topbox {
+        padding: 30px 350px; /* 中画面では左右の画像を考慮してより狭く調整 */
+        max-width: 800px; /* 最大幅を縮小 */
     }
     
     .pc-slider-container {
@@ -116,6 +128,7 @@
         width: 260px;
         height: 340px;
         top: 50px;
+        z-index: 9999;
     }
     
     .imgR {
@@ -123,6 +136,7 @@
         width: 260px;
         height: 340px;
         top: 80px;
+        z-index: 9999;
     }
 }
 
@@ -130,6 +144,10 @@
 @media (min-width: 768px) and (max-width: 1023px) {
     .pcbody {
         display: none;
+    }
+    
+    .imgL, .imgR {
+        display: none; /* タブレットでは左右の画像を非表示 */
     }
     
     .spbox {
@@ -161,8 +179,9 @@
     }
     
     .topbox {
-        margin: 0;
-        padding: 35px 25px;
+        margin: 0 auto; /* 中央配置 */
+        padding: 35px 120px; /* 左右余白をさらに増加 */
+        max-width: 700px; /* 最大幅を縮小 */
     }
     
     #profile.topbox {
@@ -170,25 +189,25 @@
     }
     
     .profbox {
-        flex-direction: row;
-        gap: 25px;
-        align-items: flex-start;
+        flex-direction: column; /* 縦並びを維持 */
+        gap: 30px;
+        align-items: center; /* 中央揃え */
     }
     
     .profbox img {
         width: 180px;
         height: 180px;
-        flex-shrink: 0;
     }
     
     .profbox section {
-        text-align: left;
-        flex: 1;
+        text-align: center; /* 中央揃え */
+        max-width: 600px;
     }
     
     .snslist {
-        grid-template-columns: repeat(2, 1fr);
+        flex-direction: column; /* 縦一列を維持 */
         gap: 15px;
+        max-width: 450px; /* タブレットでは少し広く */
     }
     
     .worklist {
@@ -221,8 +240,9 @@
 
     
     .topbox {
-        margin: 0;
-        padding: 30px 20px;
+        margin: 0 auto; /* 中央配置 */
+        padding: 30px 40px; /* 左右余白を増加 */
+        max-width: 800px; /* 最大幅を設定 */
     }
     
     #profile.topbox {
@@ -258,8 +278,9 @@
     }
     
     .snslist {
-        grid-template-columns: repeat(2, 1fr);
+        flex-direction: column; /* 縦一列を維持 */
         gap: 12px;
+        max-width: 400px; /* 中画面では標準幅 */
     }
     
     .snslist li a {
@@ -276,18 +297,9 @@
     }
     
     .worklist {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 20px;
-    }
-    
-    .worklist li {
-        padding: 25px 15px;
-        background: #e8f1f8; /* 白よりのライトブルー */
-        border-radius: 12px; /* 角を丸く */
-    }
-    
-    .worklist li img:first-child {
-        display: none; /* Hide images since we're using text titles */
+        flex-direction: column; /* 縦一列を維持 */
+        gap: 12px;
+        max-width: 400px; /* SNSセクションと同じ幅 */
     }
     
     .newslist li {
@@ -336,8 +348,9 @@
 
     
     .topbox {
-        margin: 0;
-        padding: 25px 15px;
+        margin: 0 auto; /* 中央配置 */
+        padding: 25px 30px; /* 左右余白を増加 */
+        max-width: 600px; /* 最大幅を設定 */
     }
     
     #profile.topbox {
@@ -402,14 +415,7 @@
         border-radius: 10px; /* 角を丸く */
     }
     
-    .worklist li img:first-child {
-        display: none; /* Hide images since we're using text titles */
-    }
-    
-    .worklist li span {
-        font-size: 11px;
-        margin-bottom: 12px;
-    }
+
     
 
     
@@ -426,6 +432,13 @@
     .specialty-tag {
         padding: 6px 12px;
         font-size: 11px;
+    }
+}
+
+/* Mobile and smaller screen adjustments */
+@media (max-width: 767px) {
+    .imgL, .imgR {
+        display: none; /* モバイルでは左右の画像を非表示 */
     }
 }
 
@@ -469,8 +482,9 @@
 
     
     .topbox {
-        margin: 0;
-        padding: 20px 12px;
+        margin: 0 auto; /* 中央配置 */
+        padding: 20px 25px; /* 左右余白を増加 */
+        max-width: 500px; /* 最大幅を設定 */
     }
     
     #profile.topbox {
@@ -512,9 +526,10 @@
     }
     
     .snslist {
-        grid-template-columns: 1fr;
+        flex-direction: column; /* 縦一列を維持 */
         gap: 10px;
         margin-top: 15px; /* 上部の余白を削減 */
+        max-width: 350px; /* モバイルではより狭く */
     }
     
     .snslist li {
@@ -638,8 +653,9 @@
     }
     
     .topbox {
-        margin: 0;
-        padding: 15px 8px;
+        margin: 0 auto; /* 中央配置 */
+        padding: 15px 20px; /* 左右余白を増加 */
+        max-width: 400px; /* 最大幅を設定 */
     }
     
     #profile.topbox {
@@ -779,39 +795,7 @@
     }
 }
 
-/* Work Title Responsive Styles */
-@media (max-width: 767px) {
-    .work-title {
-        font-size: 24px;
-        padding: 30px 15px 15px 15px;
-        letter-spacing: 2px;
-        margin: 0 0 10px 0;
-        text-decoration: none !important;
-        border-bottom: none !important;
-    }
-}
 
-@media (max-width: 480px) {
-    .work-title {
-        font-size: 20px;
-        padding: 25px 10px 12px 10px;
-        letter-spacing: 1.5px;
-        margin: 0 0 8px 0;
-        text-decoration: none !important;
-        border-bottom: none !important;
-    }
-}
-
-@media (max-width: 319px) {
-    .work-title {
-        font-size: 18px;
-        padding: 20px 8px 10px 8px;
-        letter-spacing: 1px;
-        margin: 0 0 6px 0;
-        text-decoration: none !important;
-        border-bottom: none !important;
-    }
-}
 
 /* Dark Mode Support (if device supports) */
 @media (prefers-color-scheme: dark) {

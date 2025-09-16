@@ -60,31 +60,37 @@ body {
 #profile .topbox {
     background-color: #c9d9ed; /* ベースカラー */
     transition: background-color 0.8s ease;
+    z-index: 1;
 }
 
 #oicot .topbox {
-    background-color: #cddaec; /* 白に近いブルー */
+    background-color: #c9d9ed; /* メインカラーに統一 */
     transition: background-color 0.8s ease;
+    z-index: 1;
 }
 
 #sns .topbox {
-    background-color: #d1dff0; /* ベースカラー */
+    background-color: #c9d9ed; /* メインカラーに統一 */
     transition: background-color 0.8s ease;
+    z-index: 1;
 }
 
 #news .topbox {
-    background-color: #c4d5e8; /* 白に近いブルー */
+    background-color: #c9d9ed; /* メインカラーに統一 */
     transition: background-color 0.8s ease;
+    z-index: 1;
 }
 
 #works .topbox {
-    background-color: #d6e3f2; /* ベースカラー */
+    background-color: #c9d9ed; /* メインカラーに統一 */
     transition: background-color 0.8s ease;
+    z-index: 1;
 }
 
 #contact .topbox {
-    background-color: #c0d1e5; /* 白に近いブルー */
+    background-color: #c9d9ed; /* メインカラーに統一 */
     transition: background-color 0.8s ease;
+    z-index: 1;
 }
 
 /* Work Sans Font */
@@ -225,26 +231,26 @@ body {
 }
 
 .imgL {
-    position: absolute;
+    position: fixed;
     left: 20px;
     top: 50px;
     width: 280px;
     height: 380px;
     overflow: hidden;
     background: transparent;
-    z-index: 15;
+    z-index: 9999;
     transform: rotate(-1deg);
 }
 
 .imgR {
-    position: absolute;
+    position: fixed;
     right: 20px;
     top: 90px;
     width: 280px;
     height: 380px;
     overflow: hidden;
     background: transparent;
-    z-index: 15;
+    z-index: 9999;
     transform: rotate(1deg);
 }
 
@@ -280,7 +286,7 @@ body {
     
     .spbox {
         position: relative;
-        z-index: 1001;
+        z-index: 1; /* 左右の画像より低い z-index に変更 */
         margin-top: 0;
         background-color: #c9d9ed;
         padding-top: 0; /* 上パディングを削除してPC版直後に表示 */
@@ -308,6 +314,11 @@ body {
         right: 60px;
         top: 100px;
     }
+    
+    .topbox {
+        padding: 30px 480px; /* 大画面では余白をさらに大きく */
+        max-width: 1000px;
+    }
 }
 
 @media (min-width: 1600px) {
@@ -322,12 +333,19 @@ body {
     .imgR {
         right: 80px;
     }
+    
+    .topbox {
+        padding: 30px 520px; /* 超大画面では余白を最大に */
+        max-width: 1100px;
+    }
 }
 
 /* Mobile Layout */
 .spbox {
     display: block;
     background-color: #c9d9ed;
+    position: relative;
+    z-index: 1; /* 左右の画像より低い z-index */
 }
 
 /* Removed - spbox should be visible on PC too */
@@ -432,7 +450,7 @@ body {
 
 .menu-link:hover {
     background: transparent;
-    color: #487BB6;
+    color: #666; /* 黒色系に変更 */
     transform: translateY(-2px);
 }
 
@@ -443,7 +461,7 @@ body {
     left: 50%;
     width: 0;
     height: 2px;
-    background: #487BB6;
+    background: #666; /* 黒色系に変更 */
     transition: all 0.3s ease;
     transform: translateX(-50%);
 }
@@ -530,8 +548,11 @@ header nav ul li a:hover {
 /* Top Box Sections */
 .topbox {
     background: transparent;
-    margin: 0; /* セクションの区切りを明確にするためマージンを0に */
-    padding: 30px 30px; /* 上下パディングを削減 */
+    margin: 0 auto; /* 中央配置 */
+    padding: 30px 420px; /* 左右の余白をさらに増加して内容を中央に集約 */
+    max-width: 900px; /* 最大幅を約半分に縮小 */
+    position: relative;
+    z-index: 1; /* 背景要素として低い z-index を設定 */
 }
 
 /* 最初のセクション（PROFILE）の上パディングを削除 */
@@ -548,7 +569,7 @@ header nav ul li a:hover {
 .ttlbox span {
     display: block;
     font-size: 14px;
-    color: #999;
+    color: #333; /* 黒色に変更 */
     letter-spacing: 2px;
     margin-bottom: 10px;
 }
@@ -558,7 +579,7 @@ header nav ul li a:hover {
     font-size: 28px;
     font-weight: 400;
     letter-spacing: 3px;
-    color: #333;
+    color: #333; /* 黒色に変更 */
     text-transform: uppercase;
 }
 
@@ -567,59 +588,87 @@ header nav ul li a:hover {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 30px;
+    gap: 25px; /* 間隔をやや縮める */
 }
 
 .profbox img {
-    width: 200px;
-    height: 200px;
+    width: 160px; /* サイズをやや小さく */
+    height: 160px;
     border-radius: 50%;
     object-fit: cover;
 }
 
 .profbox section {
     text-align: center;
-    max-width: 600px;
+    max-width: 500px; /* 最大幅をやや狭く */
 }
 
 .midashi {
-    font-size: 24px;
+    font-size: 22px; /* やや小さく */
     font-weight: 400;
-    margin-bottom: 20px;
-    color: #333;
+    margin-bottom: 15px; /* 下余白を縮める */
+    color: #333; /* 黒色に変更 */
 }
 
 .midashi span {
     display: block;
     font-size: 14px;
-    color: #999;
+    color: #666; /* 黒色系に変更 */
     font-weight: 300;
     margin-top: 5px;
 }
 
 .profbox p {
-    line-height: 1.8;
-    color: #666;
+    line-height: 1.7; /* 行間をやや狭く */
+    color: #333; /* 黒色に変更 */
     font-size: 14px;
 }
 
 @media (min-width: 768px) {
     .profbox {
-        flex-direction: row;
-        text-align: left;
+        flex-direction: column; /* 縦並びを維持 */
+        text-align: center; /* 中央揃えを維持 */
+        gap: 30px; /* デスクトップでは間隔をやや広く */
+    }
+    
+    .profbox img {
+        width: 180px; /* デスクトップでは少し大きく */
+        height: 180px;
     }
     
     .profbox section {
-        text-align: left;
+        text-align: center; /* 中央揃えを維持 */
     }
 }
 
 /* SNS List */
 .snslist {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 15px;
-    margin-top: 15px; /* 上部の余白を削減 */
+    display: flex;
+    flex-direction: column; /* 縦一列に配置 */
+    gap: 12px; /* 各項目の間隔 */
+    margin: 15px auto 0 auto;
+    max-width: 400px; /* 縦一列なのでより狭く */
+}
+
+/* デスクトップでも縦一列を確実にする */
+@media (min-width: 768px) {
+    .snslist {
+        max-width: 450px; /* デスクトップでは少し広く */
+        gap: 15px;
+    }
+    
+    .newslist {
+        max-width: 600px; /* デスクトップではPROFILEセクションと同じ幅に */
+    }
+    
+    .worklist {
+        max-width: 450px; /* SNSセクションと同じ幅に */
+        gap: 15px; /* デスクトップでは間隔をやや広く */
+    }
+    
+    .contactbox {
+        max-width: 600px; /* デスクトップではPROFILEセクションと同じ幅に */
+    }
 }
 
 .snslist li {
@@ -638,14 +687,15 @@ header nav ul li a:hover {
 .snslist li a {
     display: flex;
     align-items: center;
-    padding: 15px; /* パディングを削減 */
+    padding: 18px 20px; /* パディングを調整 */
     text-decoration: none;
-    color: #333;
+    color: #333; /* 黒色に変更 */
+    width: 100%; /* 幅を確実に取る */
 }
 
 .snslist li a img {
-    width: 40px;
-    height: 40px;
+    width: 36px; /* やや小さく */
+    height: 36px;
     margin-right: 15px;
     background: transparent;
     border-radius: 8px;
@@ -655,18 +705,20 @@ header nav ul li a:hover {
 
 .snslist li a p {
     flex: 1;
-    font-size: 14px;
+    font-size: 15px; /* やや大きく */
     font-weight: 400;
 }
 
 .snslist li a .ws {
-    font-size: 18px;
-    color: #999;
+    font-size: 16px; /* やや小さく */
+    color: #666; /* 黒色系に変更 */
+    margin-left: auto; /* 右端に配置 */
 }
 
 /* News List */
 .newslist {
-    margin-top: 30px;
+    margin: 30px auto 0 auto;
+    max-width: 500px; /* PROFILEセクションと同じ横幅に */
 }
 
 .newslist li {
@@ -681,7 +733,7 @@ header nav ul li a:hover {
 
 .newslist li span {
     font-size: 12px;
-    color: #999;
+    color: #666; /* 黒色系に変更 */
     letter-spacing: 1px;
     min-width: 100px;
     margin-right: 20px;
@@ -691,7 +743,7 @@ header nav ul li a:hover {
 .newslist li a {
     flex: 1;
     text-decoration: none;
-    color: #333;
+    color: #333; /* 黒色に変更 */
 }
 
 .newslist li a h3 {
@@ -702,60 +754,60 @@ header nav ul li a:hover {
 }
 
 .newslist li a:hover h3 {
-    color: #666;
+    color: #000; /* 濃い黒色に変更 */
 }
 
-/* Works List */
+/* Works List - SNSセクションと同じスタイル */
 .worklist {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px;
-    margin-top: 15px; /* 上部の余白を削減 */
+    display: flex;
+    flex-direction: column; /* SNSセクションと同じ縦一列レイアウト */
+    gap: 12px; /* 各項目の間隔 */
+    margin: 15px auto 0 auto;
+    max-width: 400px; /* SNSセクションと同じ幅 */
 }
 
 .worklist li {
-    text-align: center;
     background: #e8f1f8; /* 白よりのライトブルー */
-    padding: 20px 15px; /* パディングを削減 */
+    border-radius: 12px;
+    overflow: hidden;
     transition: transform 0.3s ease;
-    border-radius: 15px; /* 角を丸く */
     box-shadow: none;
+    border: none;
 }
 
 .worklist li:hover {
     transform: translateY(-5px);
 }
 
-.worklist li a:first-child {
-    display: block;
-    margin-bottom: 20px;
-    text-decoration: none !important;
+.worklist li a {
+    display: flex;
+    align-items: center;
+    padding: 18px 20px; /* SNSセクションと同じパディング */
+    text-decoration: none;
+    color: #333;
+    width: 100%;
 }
 
-.worklist li a:first-child:hover {
-    text-decoration: none !important;
+.worklist li a img {
+    width: 36px; /* SNSセクションと同じサイズ */
+    height: 36px;
+    margin-right: 15px;
+    background: transparent;
+    border-radius: 8px;
+    object-fit: contain;
+    padding: 2px;
 }
 
-.worklist li img:first-child {
-    display: none; /* Hide images since we're using text titles */
+.worklist li a p {
+    flex: 1;
+    font-size: 15px; /* SNSセクションと同じサイズ */
+    font-weight: 400;
 }
 
-.worklist li span {
-    display: block;
-    font-size: 12px;
-    color: #666;
-    letter-spacing: 2px;
-    margin-bottom: 0; /* 下の余白を削除 */
-    border-bottom: none; /* 紫の線を削除 */
-}
-
-/* Work Title Styles */
-.work-title {
-    font-size: 32px;
-    font-weight: 600;
-    color: #487BB6 !important;
-    letter-spacing: 3px;
-    margin: 0 0 15px 0;
+.worklist li a .ws {
+    font-size: 16px; /* SNSセクションと同じサイズ */
+    color: #666; /* SNSセクションと同じ色 */
+    margin-left: auto; /* 右端に配置 */
     padding: 40px 20px 20px 20px;
     font-family: "Work Sans", sans-serif;
     text-transform: uppercase;
@@ -763,11 +815,7 @@ header nav ul li a:hover {
     border-bottom: none !important;
 }
 
-.work-title:hover {
-    color: #487BB6 !important;
-    text-decoration: none !important;
-    border-bottom: none !important;
-}
+
 
 
 
@@ -786,7 +834,7 @@ header nav ul li a:hover {
 }
 
 .oicot-link:hover .midashi {
-    color: #487BB6;
+    color: #666; /* 黒色系に変更 */
 }
 
 /* OICOT FUKUI h2タイトル内のリンク */
@@ -798,13 +846,13 @@ header nav ul li a:hover {
 
 #oicot h2 a:hover {
     text-decoration: none !important;
-    color: #487BB6 !important;
+    color: #666 !important; /* 黒色系に変更 */
     border-bottom: none !important;
 }
 
 .oicot-tagline {
     font-size: 16px;
-    color: #487BB6;
+    color: #333; /* 黒色に変更 */
     margin-bottom: 15px;
     font-style: italic;
     font-weight: 400;
@@ -823,7 +871,7 @@ header nav ul li a:hover {
 /* Contact Box */
 .contactbox {
     text-align: center;
-    max-width: 600px;
+    max-width: 500px; /* PROFILEセクションと同じ横幅に */
     margin: 0 auto;
 }
 
@@ -959,8 +1007,9 @@ footer {
     }
     
     .topbox {
-        margin: 20px 10px;
-        padding: 30px 20px;
+        margin: 0 auto; /* 中央配置 */
+        padding: 30px 40px; /* 左右余白を増加 */
+        max-width: 600px; /* 最大幅を設定 */
     }
     
     .profbox img {
