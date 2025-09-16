@@ -49,46 +49,64 @@ body {
 /* Base Styles */
 body {
     font: 13px/1.231 arial, helvetica, clean, sans-serif;
-    background-color: #c9d9ed;
+    /* background-color: #ffffff; */
+    background-color: transparent; /* この行を追加します */
     color: #333;
     overflow-x: hidden;
     margin: 0; /* 上部余白を完全に削除 */
     padding: 0; /* パディングも削除 */
+    position: relative;
+}
+
+/* 3等分背景レイアウト */
+body::before,
+body::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    width: 33.333vw; /* 画面幅の1/3 */
+    height: 100vh;
+    background-color: #c9d9ed;
+    z-index: -1; /* コンテンツの背後に配置 */
+}
+
+body::before {
+    left: 0; /* 左1/3 */
+}
+
+body::after {
+    right: 0; /* 右1/3 */
 }
 
 /* Section Background Colors - 各セクションの背景色 */
 #profile .topbox {
-    background-color: #c9d9ed; /* ベースカラー */
+    background-color: #ffffff; /* ベースカラー */
     transition: background-color 0.8s ease;
     z-index: 1;
 }
 
 #oicot .topbox {
-    background-color: #c9d9ed; /* メインカラーに統一 */
+    background-color: #ffffff; /* メインカラーに統一 */
     transition: background-color 0.8s ease;
     z-index: 1;
 }
 
-#sns .topbox {
-    background-color: #c9d9ed; /* メインカラーに統一 */
-    transition: background-color 0.8s ease;
-    z-index: 1;
-}
+/* SNSセクションの塗りつぶし背景を削除 */
 
 #news .topbox {
-    background-color: #c9d9ed; /* メインカラーに統一 */
+    background-color: #ffffff; /* メインカラーに統一 */
     transition: background-color 0.8s ease;
     z-index: 1;
 }
 
 #works .topbox {
-    background-color: #c9d9ed; /* メインカラーに統一 */
+    background-color: #ffffff; /* メインカラーに統一 */
     transition: background-color 0.8s ease;
     z-index: 1;
 }
 
 #contact .topbox {
-    background-color: #c9d9ed; /* メインカラーに統一 */
+    background-color: #ffffff; /* メインカラーに統一 */
     transition: background-color 0.8s ease;
     z-index: 1;
 }
@@ -103,7 +121,7 @@ body {
 .cursor {
     width: 20px;
     height: 20px;
-    background: rgba(72, 123, 182, 0.3); /* ライトブルーに変更 */
+    background: rgba(255, 255, 255, 0.3); /* 白に変更 */
     border-radius: 50%;
     position: fixed;
     top: 0;
@@ -117,7 +135,7 @@ body {
 .follower {
     width: 8px;
     height: 8px;
-    background-color: #487BB6; /* ライトブルーに変更 */
+    background-color: #666666; /* グレーに変更 */
     border-radius: 50%;
     position: fixed;
     top: 0;
@@ -139,11 +157,9 @@ body {
     display: block; /* PC版を表示 */
     position: relative;
     width: 100%;
-    height: 100vh; /* 高さを100vhに固定 */
-    background: 
-        radial-gradient(circle at 20% 20%, rgba(72, 123, 182, 0.03) 0%, transparent 50%),
-        radial-gradient(circle at 80% 80%, rgba(72, 123, 182, 0.03) 0%, transparent 50%),
-        linear-gradient(135deg, #c9d9ed 0%, #d4e2f0 50%, #dfe8f3 100%);
+    /* height: 100vh; 高さを100vhに固定 */
+    /* background: #ffffff; */
+    background: transparent;
     z-index: 1000;
     padding: 60px;
 }
@@ -151,7 +167,7 @@ body {
 .pcbox {
     position: relative;
     width: 100%;
-    height: 100vh; /* 高さを100vhに固定 */
+    height: 700px;
     overflow: hidden;
 }
 
@@ -159,11 +175,11 @@ body {
 .pc-slider-container {
     position: absolute;
     top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    left: 50%; /* 画面の中央に配置 */
+    transform: translate(-50%, -50%); /* 中央にセンタリング */
     z-index: 20;
     text-align: center;
-    width: 420px;
+    width: 29vw; /* 確実に中央1/3に収める */
     height: 500px;
 }
 
@@ -288,7 +304,8 @@ body {
         position: relative;
         z-index: 1; /* 左右の画像より低い z-index に変更 */
         margin-top: 0;
-        background-color: #c9d9ed;
+        /* background-color: #ffffff; */
+        background-color: transparent; /* この行を追加します */
         padding-top: 0; /* 上パディングを削除してPC版直後に表示 */
     }
 }
@@ -296,7 +313,9 @@ body {
 /* Large Screen Adjustments */
 @media (min-width: 1400px) {
     .pc-slider-container {
-        width: 480px;
+        left: 50%; /* 画面の中央に配置 */
+        transform: translate(-50%, -50%); /* 中央にセンタリング */
+        width: 29vw; /* 確実に中央1/3に収める */
         height: 480px;
     }
     
@@ -316,8 +335,8 @@ body {
     }
     
     .topbox {
-        padding: 30px 480px; /* 大画面では余白をさらに大きく */
-        max-width: 1000px;
+        width: 33.333vw; /* 大画面でも中央1/3に固定 */
+        padding: 40px 30px; /* 大画面では内部余白を少し増やす */
     }
 }
 
@@ -335,15 +354,16 @@ body {
     }
     
     .topbox {
-        padding: 30px 520px; /* 超大画面では余白を最大に */
-        max-width: 1100px;
+        width: 33.333vw; /* 超大画面でも中央1/3に固定 */
+        padding: 50px 40px; /* 超大画面では内部余白を最大に */
     }
 }
 
 /* Mobile Layout */
 .spbox {
     display: block;
-    background-color: #c9d9ed;
+    /* background-color: #ffffff; */
+    background-color: transparent;
     position: relative;
     z-index: 1; /* 左右の画像より低い z-index */
 }
@@ -549,15 +569,37 @@ header nav ul li a:hover {
 .topbox {
     background: transparent;
     margin: 0 auto; /* 中央配置 */
-    padding: 30px 420px; /* 左右の余白をさらに増加して内容を中央に集約 */
-    max-width: 900px; /* 最大幅を約半分に縮小 */
+    width: 29vw; /* 確実に中央1/3に収める */
+    padding: 30px 20px; /* 適度な内部余白 */
     position: relative;
     z-index: 1; /* 背景要素として低い z-index を設定 */
+    box-sizing: border-box;
+}
+
+/* フェードイン・アウト線 */
+.topbox::after {
+    content: '';
+    display: block;
+    height: 1px;
+    background: linear-gradient(90deg, 
+        transparent 0%, 
+        rgba(208, 208, 208, 0.3) 10%,
+        rgba(208, 208, 208, 0.8) 30%, 
+        rgba(208, 208, 208, 0.8) 70%, 
+        rgba(208, 208, 208, 0.3) 90%,
+        transparent 100%);
+    margin: 25px 0 0 0;
+    width: 100%;
 }
 
 /* 最初のセクション（PROFILE）の上パディングを削除 */
 #profile.topbox {
     padding-top: 10px; /* 上部のスペースをさらに削減 */
+}
+
+/* 最後のセクション（CONTACT）の下線を削除 */
+#contact.topbox::after {
+    display: none;
 }
 
 /* Title Box */
@@ -600,7 +642,7 @@ header nav ul li a:hover {
 
 .profbox section {
     text-align: center;
-    max-width: 500px; /* 最大幅をやや狭く */
+    width: 100%; /* 中央1/3の範囲内で最大限活用 */
 }
 
 .midashi {
@@ -619,9 +661,9 @@ header nav ul li a:hover {
 }
 
 .profbox p {
-    line-height: 1.7; /* 行間をやや狭く */
+    line-height: 1.6; /* 行間を調整 */
     color: #333; /* 黒色に変更 */
-    font-size: 14px;
+    font-size: 13px; /* 中央1/3の幅に合わせてやや小さく */
 }
 
 @media (min-width: 768px) {
@@ -653,30 +695,30 @@ header nav ul li a:hover {
 /* デスクトップでも縦一列を確実にする */
 @media (min-width: 768px) {
     .snslist {
-        max-width: 450px; /* デスクトップでは少し広く */
+        width: 100%; /* 中央1/3の範囲内で最大限活用 */
         gap: 15px;
     }
     
     .newslist {
-        max-width: 600px; /* デスクトップではPROFILEセクションと同じ幅に */
+        width: 100%; /* 中央1/3の範囲内で最大限活用 */
     }
     
     .worklist {
-        max-width: 450px; /* SNSセクションと同じ幅に */
+        width: 100%; /* 中央1/3の範囲内で最大限活用 */
         gap: 15px; /* デスクトップでは間隔をやや広く */
     }
     
     .contactbox {
-        max-width: 600px; /* デスクトップではPROFILEセクションと同じ幅に */
+        width: 100%; /* 中央1/3の範囲内で最大限活用 */
     }
 }
 
 .snslist li {
-    background: #e8f1f8; /* WORKSセクションと同じ白よりのライトブルー */
+    background: #ffffff; /* 白い背景 */
     border-radius: 12px;
     overflow: hidden;
     transition: transform 0.3s ease;
-    box-shadow: none; /* シームレスなデザインのためshadowを削除 */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* 軽いシャドウで立体感を演出 */
     border: none; /* 境界線を削除 */
 }
 
@@ -1008,8 +1050,8 @@ footer {
     
     .topbox {
         margin: 0 auto; /* 中央配置 */
-        padding: 30px 40px; /* 左右余白を増加 */
-        max-width: 600px; /* 最大幅を設定 */
+        width: 33.333vw; /* モバイルでも中央1/3に固定 */
+        padding: 25px 10px; /* モバイル用の内部余白 */
     }
     
     .profbox img {

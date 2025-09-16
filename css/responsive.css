@@ -5,32 +5,29 @@
 
 /* Section Background Colors - レスポンシブでも適用 */
 #profile .topbox {
-    background-color: #c9d9ed; /* ベースカラー */
+    background-color: #ffffff; /* ベースカラー */
     transition: background-color 0.8s ease;
 }
 
 #oicot .topbox {
-    background-color: #c9d9ed; /* メインカラーに統一 */
+    background-color: #ffffff; /* メインカラーに統一 */
     transition: background-color 0.8s ease;
 }
 
-#sns .topbox {
-    background-color: #c9d9ed; /* メインカラーに統一 */
-    transition: background-color 0.8s ease;
-}
+/* SNSセクションの塗りつぶし背景を削除 */
 
 #news .topbox {
-    background-color: #c9d9ed; /* メインカラーに統一 */
+    background-color: #ffffff; /* メインカラーに統一 */
     transition: background-color 0.8s ease;
 }
 
 #works .topbox {
-    background-color: #c9d9ed; /* メインカラーに統一 */
+    background-color: #ffffff; /* メインカラーに統一 */
     transition: background-color 0.8s ease;
 }
 
 #contact .topbox {
-    background-color: #c9d9ed; /* メインカラーに統一 */
+    background-color: #ffffff; /* メインカラーに統一 */
     transition: background-color 0.8s ease;
 }
 
@@ -61,12 +58,14 @@
     }
     
     .topbox {
-        padding: 30px 400px; /* 大画面では左右の画像を考慮してさらに余白を増加 */
-        max-width: 1600px;
+        width: 33.333vw; /* 大画面でも中央1/3に固定 */
+        padding: 40px 30px; /* 内部余白のみ */
     }
     
     .pc-slider-container {
-        width: 480px;
+        left: 50%; /* 画面の中央に配置 */
+        transform: translate(-50%, -50%); /* 中央にセンタリング */
+        width: 29vw; /* 確実に中央1/3に収める */
         height: 560px;
     }
     
@@ -104,12 +103,14 @@
     }
     
     .topbox {
-        padding: 30px 350px; /* 中画面では左右の画像を考慮してより狭く調整 */
-        max-width: 800px; /* 最大幅を縮小 */
+        width: 33.333vw; /* 中画面でも中央1/3に固定 */
+        padding: 35px 25px; /* 内部余白のみ */
     }
     
     .pc-slider-container {
-        width: 380px;
+        left: 50%; /* 画面の中央に配置 */
+        transform: translate(-50%, -50%); /* 中央にセンタリング */
+        width: 29vw; /* 確実に中央1/3に収める */
         height: 460px;
     }
     
@@ -180,8 +181,8 @@
     
     .topbox {
         margin: 0 auto; /* 中央配置 */
-        padding: 35px 120px; /* 左右余白をさらに増加 */
-        max-width: 700px; /* 最大幅を縮小 */
+        width: 29vw; /* 確実に中央1/3に収める */
+        padding: 30px 15px; /* 内部余白のみ */
     }
     
     #profile.topbox {
@@ -784,9 +785,30 @@
     }
     
     body {
-        background: #c9d9ed;
+        background: #ffffff;
         color: #333;
         font-size: 12pt;
+        position: relative;
+    }
+    
+    /* モバイル版でも3等分背景レイアウト */
+    body::before,
+    body::after {
+        content: '';
+        position: fixed;
+        top: 0;
+        width: 33.333vw; /* 画面幅の1/3 */
+        height: 100vh;
+        background-color: #c9d9ed;
+        z-index: -1; /* コンテンツの背後に配置 */
+    }
+    
+    body::before {
+        left: 0; /* 左1/3 */
+    }
+    
+    body::after {
+        right: 0; /* 右1/3 */
     }
     
     .ttlbox h2 img {
