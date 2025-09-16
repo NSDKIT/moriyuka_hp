@@ -1,0 +1,820 @@
+/* ==============================================
+   Mori Yuka Official Site - Yukos Style Responsive
+   ゆうこす公式サイト完全再現レスポンシブ
+============================================== */
+
+/* Section Background Colors - レスポンシブでも適用 */
+#profile .topbox {
+    background-color: #c9d9ed; /* ベースカラー */
+    transition: background-color 0.8s ease;
+}
+
+#oicot .topbox {
+    background-color: #cddaec; /* 白に近いブルー */
+    transition: background-color 0.8s ease;
+}
+
+#sns .topbox {
+    background-color: #d1dff0; /* ベースカラー */
+    transition: background-color 0.8s ease;
+}
+
+#news .topbox {
+    background-color: #c4d5e8; /* 白に近いブルー */
+    transition: background-color 0.8s ease;
+}
+
+#works .topbox {
+    background-color: #d6e3f2; /* ベースカラー */
+    transition: background-color 0.8s ease;
+}
+
+#contact .topbox {
+    background-color: #c0d1e5; /* 白に近いブルー */
+    transition: background-color 0.8s ease;
+}
+
+/* Container - ゆうこす公式サイトと同じ幅設定 */
+.container {
+    max-width: 1080px;
+    margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+    .container {
+        width: 1080px;
+        padding: 0 20px;
+    }
+}
+
+/* Clear Fix - ゆうこす公式サイトと同じ */
+.clr:after, .col:after, .container:after, .group:after, .row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* Large Desktop (1400px+) */
+@media (min-width: 1400px) {
+    .pcbody {
+        padding: 80px;
+    }
+    
+    .pc-slider-container {
+        width: 480px;
+        height: 560px;
+    }
+    
+    .pc-title .main-title {
+        font-size: 36px;
+        letter-spacing: 5px;
+    }
+    
+    .pc-title .sub-title {
+        font-size: 28px;
+        letter-spacing: 4px;
+    }
+    
+    .imgL {
+        left: 80px;
+        width: 320px;
+        height: 420px;
+        top: 60px;
+    }
+    
+    .imgR {
+        right: 80px;
+        width: 320px;
+        height: 420px;
+        top: 100px;
+    }
+}
+
+/* Desktop (1024px - 1399px) */
+@media (min-width: 1024px) and (max-width: 1399px) {
+    .pcbody {
+        padding: 50px;
+    }
+    
+    .pc-slider-container {
+        width: 380px;
+        height: 460px;
+    }
+    
+    .pc-title .main-title {
+        font-size: 28px;
+        letter-spacing: 3px;
+    }
+    
+    .pc-title .sub-title {
+        font-size: 21px;
+        letter-spacing: 2px;
+    }
+    
+    .imgL {
+        left: 40px;
+        width: 260px;
+        height: 340px;
+        top: 50px;
+    }
+    
+    .imgR {
+        right: 40px;
+        width: 260px;
+        height: 340px;
+        top: 80px;
+    }
+}
+
+/* Tablet Landscape (768px - 1023px) */
+@media (min-width: 768px) and (max-width: 1023px) {
+    .pcbody {
+        display: none;
+    }
+    
+    .spbox {
+        display: block;
+        margin-top: 0;
+    }
+    
+    .topteaser {
+        display: none; /* 完全に非表示にする */
+    }
+    
+    .hamburger-menu {
+        top: 15px;
+        right: 15px;
+    }
+    
+    .hamburger-toggle {
+        width: 45px;
+        height: 45px;
+    }
+    
+    .hamburger-line {
+        width: 18px;
+    }
+    
+    .menu-link {
+        font-size: 22px;
+        padding: 12px 25px;
+    }
+    
+    .topbox {
+        margin: 0;
+        padding: 35px 25px;
+    }
+    
+    #profile.topbox {
+        padding-top: 5px; /* 上部余白をさらに削減 */
+    }
+    
+    .profbox {
+        flex-direction: row;
+        gap: 25px;
+        align-items: flex-start;
+    }
+    
+    .profbox img {
+        width: 180px;
+        height: 180px;
+        flex-shrink: 0;
+    }
+    
+    .profbox section {
+        text-align: left;
+        flex: 1;
+    }
+    
+    .snslist {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+    
+    .worklist {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 25px;
+    }
+    
+    .newslist li span {
+        min-width: 90px;
+        margin-right: 15px;
+    }
+}
+
+/* Tablet Portrait (600px - 767px) */
+@media (min-width: 600px) and (max-width: 767px) {
+    header {
+        padding: 15px 0;
+    }
+    
+    header nav ul {
+        gap: 10px;
+        padding: 0 15px;
+    }
+    
+    header nav ul li a {
+        font-size: 10px;
+        padding: 5px 8px;
+    }
+    
+
+    
+    .topbox {
+        margin: 0;
+        padding: 30px 20px;
+    }
+    
+    #profile.topbox {
+        padding-top: 5px; /* 上部余白をさらに削減 */
+    }
+    
+    .ttlbox {
+        margin-bottom: 30px;
+    }
+    
+    .ttlbox h2 img {
+        font-size: 24px;
+        letter-spacing: 2.5px;
+    }
+    
+    .profbox {
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+    }
+    
+    .profbox img {
+        width: 160px;
+        height: 160px;
+    }
+    
+    .profbox section {
+        text-align: center;
+    }
+    
+    .midashi {
+        font-size: 22px;
+    }
+    
+    .snslist {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+    
+    .snslist li a {
+        padding: 15px;
+    }
+    
+    .snslist li a img {
+        width: 35px;
+        height: 35px;
+        background: transparent;
+        border-radius: 6px;
+        object-fit: contain;
+        padding: 2px;
+    }
+    
+    .worklist {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+    
+    .worklist li {
+        padding: 25px 15px;
+        background: #e8f1f8; /* 白よりのライトブルー */
+        border-radius: 12px; /* 角を丸く */
+    }
+    
+    .worklist li img:first-child {
+        display: none; /* Hide images since we're using text titles */
+    }
+    
+    .newslist li {
+        flex-direction: column;
+        gap: 5px;
+        padding: 15px 0;
+    }
+    
+    .newslist li span {
+        min-width: auto;
+        margin-right: 0;
+        margin-bottom: 5px;
+    }
+}
+
+/* Mobile Landscape (481px - 599px) */
+@media (min-width: 481px) and (max-width: 599px) {
+    .hamburger-menu {
+        top: 12px;
+        right: 12px;
+    }
+    
+    .hamburger-toggle {
+        width: 42px;
+        height: 42px;
+    }
+    
+    .menu-link {
+        font-size: 20px;
+        padding: 10px 20px;
+    }
+    
+    header nav ul {
+        gap: 8px;
+        padding: 0 10px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    header nav ul li a {
+        font-size: 9px;
+        padding: 4px 6px;
+        letter-spacing: 0.5px;
+    }
+    
+
+    
+    .topbox {
+        margin: 0;
+        padding: 25px 15px;
+    }
+    
+    #profile.topbox {
+        padding-top: 5px; /* 上部余白をさらに削減 */
+    }
+    
+    .ttlbox span {
+        font-size: 12px;
+        margin-bottom: 8px;
+    }
+    
+    .ttlbox h2 img {
+        font-size: 22px;
+        letter-spacing: 2px;
+    }
+    
+    .profbox img {
+        width: 140px;
+        height: 140px;
+    }
+    
+    .midashi {
+        font-size: 20px;
+        margin-bottom: 15px;
+    }
+    
+    .midashi span {
+        font-size: 12px;
+    }
+    
+    .profbox p {
+        font-size: 13px;
+        line-height: 1.7;
+    }
+    
+    .snslist li a {
+        padding: 12px;
+    }
+    
+    .snslist li a img {
+        width: 32px;
+        height: 32px;
+        margin-right: 12px;
+        background: transparent;
+        border-radius: 6px;
+        object-fit: contain;
+        padding: 2px;
+    }
+    
+    .snslist li a p {
+        font-size: 13px;
+    }
+    
+    .worklist {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+    
+    .worklist li {
+        padding: 20px 12px;
+        background: #e8f1f8; /* 白よりのライトブルー */
+        border-radius: 10px; /* 角を丸く */
+    }
+    
+    .worklist li img:first-child {
+        display: none; /* Hide images since we're using text titles */
+    }
+    
+    .worklist li span {
+        font-size: 11px;
+        margin-bottom: 12px;
+    }
+    
+
+    
+    .contact-info h3 {
+        font-size: 18px;
+        margin-bottom: 15px;
+    }
+    
+    .contact-info p {
+        font-size: 13px;
+        margin-bottom: 25px;
+    }
+    
+    .specialty-tag {
+        padding: 6px 12px;
+        font-size: 11px;
+    }
+}
+
+/* Mobile Portrait (320px - 480px) */
+@media (max-width: 480px) {
+    .hamburger-menu {
+        top: 10px;
+        right: 10px;
+    }
+    
+    .hamburger-toggle {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .hamburger-line {
+        width: 16px;
+    }
+    
+    .menu-link {
+        font-size: 18px;
+        padding: 8px 15px;
+    }
+    
+    header {
+        padding: 12px 0;
+    }
+    
+    header nav ul {
+        gap: 6px;
+        padding: 0 8px;
+        flex-wrap: wrap;
+    }
+    
+    header nav ul li a {
+        font-size: 8px;
+        padding: 3px 5px;
+        letter-spacing: 0.3px;
+    }
+    
+
+    
+    .topbox {
+        margin: 0;
+        padding: 20px 12px;
+    }
+    
+    #profile.topbox {
+        padding-top: 5px; /* 上部余白をさらに削減 */
+    }
+    
+    .ttlbox {
+        margin-bottom: 25px;
+    }
+    
+    .ttlbox span {
+        font-size: 11px;
+        margin-bottom: 6px;
+    }
+    
+    .ttlbox h2 {
+        font-size: 20px;
+        letter-spacing: 2px;
+    }
+    
+    .profbox img {
+        width: 120px;
+        height: 120px;
+    }
+    
+    .midashi {
+        font-size: 18px;
+        margin-bottom: 12px;
+    }
+    
+    .midashi span {
+        font-size: 11px;
+        margin-top: 3px;
+    }
+    
+    .profbox p {
+        font-size: 12px;
+        line-height: 1.6;
+    }
+    
+    .snslist {
+        grid-template-columns: 1fr;
+        gap: 10px;
+        margin-top: 15px; /* 上部の余白を削減 */
+    }
+    
+    .snslist li {
+        background: #e8f1f8; /* WORKSセクションと同じ白よりのライトブルー */
+        border-radius: 10px;
+        box-shadow: none;
+        border: none;
+    }
+    
+    .snslist li a {
+        padding: 10px;
+    }
+    
+    .snslist li a img {
+        width: 28px;
+        height: 28px;
+        margin-right: 10px;
+        background: transparent;
+        border-radius: 5px;
+        object-fit: contain;
+        padding: 2px;
+    }
+    
+    .snslist li a p {
+        font-size: 12px;
+    }
+    
+    .snslist li a .ws {
+        font-size: 14px;
+    }
+    
+    .newslist li {
+        padding: 12px 0;
+    }
+    
+    .newslist li span {
+        font-size: 10px;
+        margin-bottom: 3px;
+    }
+    
+    .newslist li a h3 {
+        font-size: 12px;
+    }
+    
+    .worklist {
+        gap: 12px;
+        margin-top: 15px; /* 上部の余白を削減 */
+    }
+    
+    .worklist li {
+        padding: 15px 10px;
+        background: #e8f1f8; /* 白よりのライトブルー */
+        border-radius: 8px; /* 角を丸く */
+    }
+    
+    .worklist li img:first-child {
+        display: none; /* Hide images since we're using text titles */
+    }
+    
+    .worklist li span {
+        font-size: 10px;
+        margin-bottom: 10px;
+    }
+    
+
+    
+    .contactbox {
+        padding: 0;
+    }
+    
+    .contact-info h3 {
+        font-size: 16px;
+        margin-bottom: 12px;
+    }
+    
+    .contact-info p {
+        font-size: 12px;
+        line-height: 1.6;
+        margin-bottom: 20px;
+    }
+    
+    .contact-specialties {
+        gap: 8px;
+    }
+    
+    .specialty-tag {
+        padding: 5px 10px;
+        font-size: 10px;
+    }
+    
+    footer {
+        padding: 25px 15px;
+        margin-top: 40px;
+    }
+    
+    .footerbox .copyright {
+        font-size: 11px;
+    }
+}
+
+/* Extra Small Mobile (280px - 319px) */
+@media (max-width: 319px) {
+    .hamburger-menu {
+        top: 8px;
+        right: 8px;
+    }
+    
+    .hamburger-toggle {
+        width: 38px;
+        height: 38px;
+    }
+    
+    .menu-link {
+        font-size: 16px;
+        padding: 6px 12px;
+    }
+    
+    header nav ul li a {
+        font-size: 7px;
+        padding: 2px 4px;
+    }
+    
+    .topbox {
+        margin: 0;
+        padding: 15px 8px;
+    }
+    
+    #profile.topbox {
+        padding-top: 3px; /* 上部余白をさらに削減 */
+    }
+    
+    .ttlbox h2 img {
+        font-size: 16px;
+        letter-spacing: 1.5px;
+    }
+    
+    .profbox img {
+        width: 100px;
+        height: 100px;
+    }
+    
+    .midashi {
+        font-size: 16px;
+    }
+    
+    .profbox p, .contact-info p {
+        font-size: 11px;
+    }
+    
+    .snslist li a img {
+        width: 24px;
+        height: 24px;
+        margin-right: 8px;
+        background: transparent;
+        border-radius: 4px;
+        object-fit: contain;
+        padding: 2px;
+    }
+    
+    .snslist li a p {
+        font-size: 11px;
+    }
+    
+    .worklist li img:first-child {
+        display: none; /* Hide images since we're using text titles */
+    }
+    
+    .specialty-tag {
+        padding: 4px 8px;
+        font-size: 9px;
+    }
+}
+
+/* High DPI Displays */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .profbox img,
+    .snslist li a img,
+    .worklist li img {
+        image-rendering: -webkit-optimize-contrast;
+        image-rendering: crisp-edges;
+    }
+}
+
+/* Landscape Mobile Optimization */
+@media screen and (max-height: 500px) and (orientation: landscape) {
+    .hamburger-menu {
+        top: 5px;
+        right: 5px;
+    }
+    
+    .hamburger-toggle {
+        width: 35px;
+        height: 35px;
+    }
+    
+    .hamburger-line {
+        width: 14px;
+        height: 1.5px;
+    }
+    
+    .menu-link {
+        font-size: 14px;
+        padding: 5px 10px;
+    }
+    
+    header {
+        padding: 8px 0;
+    }
+    
+
+    
+    .topbox {
+        margin: 10px 5px;
+        padding: 15px 10px;
+    }
+    
+    .profbox {
+        flex-direction: row;
+        gap: 15px;
+    }
+    
+    .profbox img {
+        width: 80px;
+        height: 80px;
+    }
+    
+    .profbox section {
+        text-align: left;
+    }
+}
+
+/* Print Styles */
+@media print {
+    .cursor,
+    .follower,
+    header,
+    footer {
+        display: none;
+    }
+    
+    .topbox {
+        margin: 15px 0;
+        padding: 20px 0;
+    }
+    
+    .profbox img,
+    .snslist li a img,
+    .worklist li img {
+        max-width: 100px;
+        max-height: 100px;
+    }
+    
+    body {
+        background: #c9d9ed;
+        color: #333;
+        font-size: 12pt;
+    }
+    
+    .ttlbox h2 img {
+        font-size: 24px;
+        letter-spacing: 2.5px;
+    }
+}
+
+/* Work Title Responsive Styles */
+@media (max-width: 767px) {
+    .work-title {
+        font-size: 24px;
+        padding: 30px 15px 15px 15px;
+        letter-spacing: 2px;
+        margin: 0 0 10px 0;
+        text-decoration: none !important;
+        border-bottom: none !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .work-title {
+        font-size: 20px;
+        padding: 25px 10px 12px 10px;
+        letter-spacing: 1.5px;
+        margin: 0 0 8px 0;
+        text-decoration: none !important;
+        border-bottom: none !important;
+    }
+}
+
+@media (max-width: 319px) {
+    .work-title {
+        font-size: 18px;
+        padding: 20px 8px 10px 8px;
+        letter-spacing: 1px;
+        margin: 0 0 6px 0;
+        text-decoration: none !important;
+        border-bottom: none !important;
+    }
+}
+
+/* Dark Mode Support (if device supports) */
+@media (prefers-color-scheme: dark) {
+    /* Currently not implemented to maintain exact yukos style */
+    /* Can be added if needed */
+}
