@@ -66,7 +66,7 @@
         left: 50%; /* 画面の中央に配置 */
         transform: translate(-50%, -50%); /* 中央にセンタリング */
         width: 29vw; /* 確実に中央1/3に収める */
-        height: 560px;
+        height: 640px; /* タイトル分の高さを追加 */
     }
     
     .pc-title .main-title {
@@ -111,7 +111,7 @@
         left: 50%; /* 画面の中央に配置 */
         transform: translate(-50%, -50%); /* 中央にセンタリング */
         width: 29vw; /* 確実に中央1/3に収める */
-        height: 460px;
+        height: 540px; /* タイトル分の高さを追加 */
     }
     
     .pc-title .main-title {
@@ -224,6 +224,16 @@
 
 /* Tablet Portrait (600px - 767px) */
 @media (min-width: 600px) and (max-width: 767px) {
+    /* タブレットでは左右の青い背景を非表示 */
+    body::before,
+    body::after {
+        display: none;
+    }
+    
+    body {
+        background-color: #ffffff; /* 白い背景 */
+    }
+    
     header {
         padding: 15px 0;
     }
@@ -238,10 +248,9 @@
         padding: 5px 8px;
     }
     
-
-    
     .topbox {
         margin: 0 auto; /* 中央配置 */
+        width: 100%; /* タブレットでは全幅を使用 */
         padding: 30px 40px; /* 左右余白を増加 */
         max-width: 800px; /* 最大幅を設定 */
     }
@@ -318,6 +327,16 @@
 
 /* Mobile Landscape (481px - 599px) */
 @media (min-width: 481px) and (max-width: 599px) {
+    /* モバイルでは左右の青い背景を非表示 */
+    body::before,
+    body::after {
+        display: none;
+    }
+    
+    body {
+        background-color: #ffffff; /* 白い背景 */
+    }
+    
     .hamburger-menu {
         top: 12px;
         right: 12px;
@@ -346,10 +365,9 @@
         letter-spacing: 0.5px;
     }
     
-
-    
     .topbox {
         margin: 0 auto; /* 中央配置 */
+        width: 100%; /* モバイルでは全幅を使用 */
         padding: 25px 30px; /* 左右余白を増加 */
         max-width: 600px; /* 最大幅を設定 */
     }
@@ -441,10 +459,30 @@
     .imgL, .imgR {
         display: none; /* モバイルでは左右の画像を非表示 */
     }
+    
+    /* モバイルでは左右の青い背景を非表示 */
+    body::before,
+    body::after {
+        display: none;
+    }
+    
+    body {
+        background-color: #ffffff; /* 白い背景 */
+    }
 }
 
 /* Mobile Portrait (320px - 480px) */
 @media (max-width: 480px) {
+    /* モバイルでは左右の青い背景を非表示 */
+    body::before,
+    body::after {
+        display: none;
+    }
+    
+    body {
+        background-color: #ffffff; /* 白い背景 */
+    }
+    
     .hamburger-menu {
         top: 10px;
         right: 10px;
@@ -480,10 +518,9 @@
         letter-spacing: 0.3px;
     }
     
-
-    
     .topbox {
         margin: 0 auto; /* 中央配置 */
+        width: 100%; /* モバイルでは全幅を使用 */
         padding: 20px 25px; /* 左右余白を増加 */
         max-width: 500px; /* 最大幅を設定 */
     }
@@ -633,6 +670,16 @@
 
 /* Extra Small Mobile (280px - 319px) */
 @media (max-width: 319px) {
+    /* 最小モバイルでは左右の青い背景を非表示 */
+    body::before,
+    body::after {
+        display: none;
+    }
+    
+    body {
+        background-color: #ffffff; /* 白い背景 */
+    }
+    
     .hamburger-menu {
         top: 8px;
         right: 8px;
@@ -655,6 +702,7 @@
     
     .topbox {
         margin: 0 auto; /* 中央配置 */
+        width: 100%; /* 最小モバイルでも全幅を使用 */
         padding: 15px 20px; /* 左右余白を増加 */
         max-width: 400px; /* 最大幅を設定 */
     }
@@ -717,6 +765,16 @@
 
 /* Landscape Mobile Optimization */
 @media screen and (max-height: 500px) and (orientation: landscape) {
+    /* 横向きモバイルでは左右の青い背景を非表示 */
+    body::before,
+    body::after {
+        display: none;
+    }
+    
+    body {
+        background-color: #ffffff; /* 白い背景 */
+    }
+    
     .hamburger-menu {
         top: 5px;
         right: 5px;
@@ -741,11 +799,11 @@
         padding: 8px 0;
     }
     
-
-    
     .topbox {
-        margin: 10px 5px;
+        width: 100%; /* 横向きモバイルでも全幅を使用 */
+        margin: 10px auto; /* 中央配置 */
         padding: 15px 10px;
+        max-width: 600px; /* 適切な最大幅 */
     }
     
     .profbox {
@@ -791,24 +849,9 @@
         position: relative;
     }
     
-    /* モバイル版でも3等分背景レイアウト */
-    body::before,
-    body::after {
-        content: '';
-        position: fixed;
-        top: 0;
-        width: 33.333vw; /* 画面幅の1/3 */
-        height: 100vh;
-        background-color: #c9d9ed;
-        z-index: -1; /* コンテンツの背後に配置 */
-    }
-    
-    body::before {
-        left: 0; /* 左1/3 */
-    }
-    
-    body::after {
-        right: 0; /* 右1/3 */
+    /* 印刷時は背景をシンプルに */
+    body {
+        background: #ffffff;
     }
     
     .ttlbox h2 img {

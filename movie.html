@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1,IE=edge">
+    <meta name="viewport" content="width=device-width,shrink-to-fit=no">
+    <meta name="format-detection" content="telephone=no">
+    <title>MOVIE - もりゆか公式サイト</title>
+    <meta name="description" content="もりゆかの映画出演作品ギャラリー">
+    
+    <!-- OGP Meta Tags -->
+    <meta property="og:title" content="MOVIE - もりゆか公式サイト">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://cdn-icons-png.flaticon.com/128/8068/8068055.png">
+    <meta property="og:site_name" content="もりゆか公式サイト">
+    <meta property="og:description" content="もりゆかの映画出演作品ギャラリー">
+    
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌸</text></svg>">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400&display=swap">
+    
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    
+    <style>
+        /* Movie Gallery Specific Styles */
+        body {
+            background: #c9d9ed;
+            min-height: 100vh;
+            color: #333;
+        }
+        
+        .movie-container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        .movie-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .movie-header h1 {
+            font-family: 'Work Sans', sans-serif;
+            font-size: 48px;
+            font-weight: 300;
+            letter-spacing: 8px;
+            margin-bottom: 20px;
+            color: #333;
+            text-shadow: none;
+        }
+        
+        .movie-header p {
+            font-size: 18px;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+        
+        .back-button {
+            position: fixed;
+            top: 30px;
+            left: 30px;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.9);
+            color: #333;
+            padding: 12px 20px;
+            border-radius: 25px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(200, 200, 200, 0.8);
+        }
+        
+        .back-button:hover {
+            background: rgba(255, 255, 255, 1);
+            transform: translateY(-2px);
+        }
+        
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+        
+        .movie-item {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            color: #333;
+        }
+        
+        .movie-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+        
+        .movie-poster {
+            width: 100%;
+            height: 400px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+        
+        .movie-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.8));
+            padding: 30px 20px 20px;
+            color: #fff;
+        }
+        
+        .movie-info {
+            padding: 25px;
+        }
+        
+        .movie-title {
+            font-size: 24px;
+            font-weight: 400;
+            margin-bottom: 10px;
+            font-family: 'Work Sans', sans-serif;
+        }
+        
+        .movie-year {
+            color: #b0b0b0;
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+        
+        .movie-description {
+            font-size: 14px;
+            line-height: 1.6;
+            opacity: 0.9;
+        }
+        
+        .movie-role {
+            display: inline-block;
+            background: #c9d9ed;
+            color: #333;
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 12px;
+            margin-top: 15px;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .movie-header h1 {
+                font-size: 36px;
+                letter-spacing: 4px;
+            }
+            
+            .gallery-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .back-button {
+                top: 20px;
+                left: 20px;
+                padding: 10px 16px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Back Button -->
+    <a href="index.html" class="back-button">
+        <i class="fas fa-arrow-left"></i> BACK TO MAIN
+    </a>
+
+    <div class="movie-container">
+        <!-- Header -->
+        <div class="movie-header">
+            <h1>MOVIE</h1>
+            <p>もりゆかの映画出演作品をご紹介します。これまでに出演した作品の中から、代表的なものをギャラリー形式でお楽しみください。</p>
+        </div>
+
+        <!-- Gallery Grid -->
+        <div class="gallery-grid">
+            <!-- Movie 1 -->
+            <div class="movie-item">
+                <div class="movie-poster" style="background-image: url('https://images.unsplash.com/photo-1489599663615-09281233b2db?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');">
+                    <div class="movie-overlay">
+                        <div class="movie-title">カラダ探し THE LAST NIGHT</div>
+                        <div class="movie-year">2024年</div>
+                    </div>
+                </div>
+                <div class="movie-info">
+                    <div class="movie-description">
+                        実際の出演作品。楽曲提供も手がけた注目の話題作。
+                    </div>
+                    <span class="movie-role">出演・楽曲提供</span>
+                </div>
+            </div>
+
+            <!-- Movie 2 -->
+            <div class="movie-item">
+                <div class="movie-poster" style="background-image: url('https://images.unsplash.com/photo-1574267432553-4b4628aa8c46?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');">
+                    <div class="movie-overlay">
+                        <div class="movie-title">神楽、舞う瞬間</div>
+                        <div class="movie-year">2024年</div>
+                    </div>
+                </div>
+                <div class="movie-info">
+                    <div class="movie-description">
+                        つんく♂プロデュース作品に出演。音楽とパフォーマンスが融合した話題作。
+                    </div>
+                    <span class="movie-role">出演</span>
+                </div>
+            </div>
+
+            <!-- Movie 3 -->
+            <div class="movie-item">
+                <div class="movie-poster" style="background-image: url('https://images.unsplash.com/photo-1518676590629-3dcbd9c5a5c9?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');">
+                    <div class="movie-overlay">
+                        <div class="movie-title">super sunset</div>
+                        <div class="movie-year">2024年</div>
+                    </div>
+                </div>
+                <div class="movie-info">
+                    <div class="movie-description">
+                        ムービーハッカソンで制作された革新的な短編作品。クリエイティブな映像表現が話題。
+                    </div>
+                    <span class="movie-role">出演</span>
+                </div>
+            </div>
+
+            <!-- Movie 4 -->
+            <div class="movie-item">
+                <div class="movie-poster" style="background-image: url('https://images.unsplash.com/photo-1594909122845-11baa439b7bf?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');">
+                    <div class="movie-overlay">
+                        <div class="movie-title">福街モラトリアム</div>
+                        <div class="movie-year">2024年</div>
+                    </div>
+                </div>
+                <div class="movie-info">
+                    <div class="movie-description">
+                        福井県の風景を美しく描いたショートムービー。地域の魅力を映像で表現した作品。
+                    </div>
+                    <span class="movie-role">出演</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript for smooth animations -->
+    <script>
+        // Smooth scroll animations
+        document.addEventListener('DOMContentLoaded', function() {
+            const movieItems = document.querySelectorAll('.movie-item');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry, index) => {
+                    if (entry.isIntersecting) {
+                        setTimeout(() => {
+                            entry.target.style.opacity = '1';
+                            entry.target.style.transform = 'translateY(0)';
+                        }, index * 100);
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+            
+            movieItems.forEach((item, index) => {
+                item.style.opacity = '0';
+                item.style.transform = 'translateY(30px)';
+                item.style.transition = 'all 0.6s ease';
+                observer.observe(item);
+            });
+        });
+    </script>
+</body>
+</html>

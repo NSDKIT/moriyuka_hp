@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1,IE=edge">
+    <meta name="viewport" content="width=device-width,shrink-to-fit=no">
+    <meta name="format-detection" content="telephone=no">
+    <title>PROMOTION - もりゆか公式サイト</title>
+    <meta name="description" content="もりゆかのプロモーション・PV出演作品ギャラリー">
+    
+    <!-- OGP Meta Tags -->
+    <meta property="og:title" content="PROMOTION - もりゆか公式サイト">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://cdn-icons-png.flaticon.com/128/8068/8068055.png">
+    <meta property="og:site_name" content="もりゆか公式サイト">
+    <meta property="og:description" content="もりゆかのプロモーション・PV出演作品ギャラリー">
+    
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌸</text></svg>">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400&display=swap">
+    
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    
+    <style>
+        /* Promotion Gallery Specific Styles */
+        body {
+            background: #c9d9ed;
+            min-height: 100vh;
+            color: #333;
+        }
+        
+        .promotion-container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        .promotion-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .promotion-header h1 {
+            font-family: 'Work Sans', sans-serif;
+            font-size: 48px;
+            font-weight: 300;
+            letter-spacing: 8px;
+            margin-bottom: 20px;
+            color: #333;
+            text-shadow: none;
+        }
+        
+        .promotion-header p {
+            font-size: 18px;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+        
+        .back-button {
+            position: fixed;
+            top: 30px;
+            left: 30px;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.9);
+            color: #333;
+            padding: 12px 20px;
+            border-radius: 25px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(200, 200, 200, 0.8);
+        }
+        
+        .back-button:hover {
+            background: rgba(255, 255, 255, 1);
+            transform: translateY(-2px);
+        }
+        
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+        
+        .promotion-item {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            color: #333;
+        }
+        
+        .promotion-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+        
+        .promotion-poster {
+            width: 100%;
+            height: 400px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+        
+        .promotion-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.8));
+            padding: 30px 20px 20px;
+            color: #fff;
+        }
+        
+        .promotion-info {
+            padding: 25px;
+        }
+        
+        .promotion-title {
+            font-size: 24px;
+            font-weight: 400;
+            margin-bottom: 10px;
+            font-family: 'Work Sans', sans-serif;
+        }
+        
+        .promotion-year {
+            color: #b0b0b0;
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+        
+        .promotion-description {
+            font-size: 14px;
+            line-height: 1.6;
+            opacity: 0.9;
+        }
+        
+        .promotion-role {
+            display: inline-block;
+            background: #c9d9ed;
+            color: #333;
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 12px;
+            margin-top: 15px;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .promotion-header h1 {
+                font-size: 36px;
+                letter-spacing: 4px;
+            }
+            
+            .gallery-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .back-button {
+                top: 20px;
+                left: 20px;
+                padding: 10px 16px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Back Button -->
+    <a href="index.html" class="back-button">
+        <i class="fas fa-arrow-left"></i> BACK TO MAIN
+    </a>
+
+    <div class="promotion-container">
+        <!-- Header -->
+        <div class="promotion-header">
+            <h1>PROMOTION & WEB</h1>
+            <p>もりゆかのプロモーション映像・Web出演作品をご紹介します。多様なメディアでの活躍をお楽しみください。</p>
+        </div>
+
+        <!-- Gallery Grid -->
+        <div class="gallery-grid">
+            <!-- Promotion 1 -->
+            <div class="promotion-item">
+                <div class="promotion-poster" style="background-image: url('https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');">
+                    <div class="promotion-overlay">
+                        <div class="promotion-title">福井県公式観光サイト「ふく旅」</div>
+                        <div class="promotion-year">2024年</div>
+                    </div>
+                </div>
+                <div class="promotion-info">
+                    <div class="promotion-description">
+                        福井県の公式観光サイトでライターとして活動。地元愛あふれる記事で観光地の魅力を発信。
+                    </div>
+                    <span class="promotion-role">ライター</span>
+                </div>
+            </div>
+
+            <!-- Promotion 2 -->
+            <div class="promotion-item">
+                <div class="promotion-poster" style="background-image: url('https://images.unsplash.com/photo-1516280440614-37939bbacd81?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');">
+                    <div class="promotion-overlay">
+                        <div class="promotion-title">女子業界チャンネル</div>
+                        <div class="promotion-year">2024年 • Web番組</div>
+                    </div>
+                </div>
+                <div class="promotion-info">
+                    <div class="promotion-description">
+                        女性向けの業界情報を発信するWeb番組に出演。等身大の視点で業界の魅力を伝えた。
+                    </div>
+                    <span class="promotion-role">レギュラー出演</span>
+                </div>
+            </div>
+
+            <!-- Promotion 3 -->
+            <div class="promotion-item">
+                <div class="promotion-poster" style="background-image: url('https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');">
+                    <div class="promotion-overlay">
+                        <div class="promotion-title">越の湯グループ</div>
+                        <div class="promotion-year">2024年 • Graphic Design</div>
+                    </div>
+                </div>
+                <div class="promotion-info">
+                    <div class="promotion-description">
+                        温泉施設のグラフィック広告にモデルとして参加。リラックスした表情で温泉の魅力を表現。
+                    </div>
+                    <span class="promotion-role">グラフィックモデル</span>
+                </div>
+            </div>
+
+            <!-- Promotion 4 -->
+            <div class="promotion-item">
+                <div class="promotion-poster" style="background-image: url('https://images.unsplash.com/photo-1540039155733-5bb30b53aa14?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');">
+                    <div class="promotion-overlay">
+                        <div class="promotion-title">熊川宿観光パンフレット</div>
+                        <div class="promotion-year">2024年 • Graphic Design</div>
+                    </div>
+                </div>
+                <div class="promotion-info">
+                    <div class="promotion-description">
+                        歴史ある熊川宿の観光パンフレットのグラフィックデザインに参加。伝統と現代を結ぶ表現を担った。
+                    </div>
+                    <span class="promotion-role">グラフィック参加</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript for smooth animations -->
+    <script>
+        // Smooth scroll animations
+        document.addEventListener('DOMContentLoaded', function() {
+            const promotionItems = document.querySelectorAll('.promotion-item');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry, index) => {
+                    if (entry.isIntersecting) {
+                        setTimeout(() => {
+                            entry.target.style.opacity = '1';
+                            entry.target.style.transform = 'translateY(0)';
+                        }, index * 100);
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+            
+            promotionItems.forEach((item, index) => {
+                item.style.opacity = '0';
+                item.style.transform = 'translateY(30px)';
+                item.style.transition = 'all 0.6s ease';
+                observer.observe(item);
+            });
+        });
+    </script>
+</body>
+</html>

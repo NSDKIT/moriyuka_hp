@@ -180,13 +180,13 @@ body::after {
     z-index: 20;
     text-align: center;
     width: 29vw; /* 確実に中央1/3に収める */
-    height: 500px;
+    height: 580px; /* タイトル分の高さを追加 */
 }
 
 /* タイトルテキスト */
 .pc-title {
     position: absolute;
-    top: -80px;
+    top: -10px;
     left: 50%;
     transform: translateX(-50%);
     text-align: center;
@@ -316,7 +316,7 @@ body::after {
         left: 50%; /* 画面の中央に配置 */
         transform: translate(-50%, -50%); /* 中央にセンタリング */
         width: 29vw; /* 確実に中央1/3に収める */
-        height: 480px;
+        height: 560px; /* タイトル分の高さを追加 */
     }
     
     .imgL, .imgR {
@@ -1042,16 +1042,28 @@ footer {
     }
 }
 
-/* Responsive Adjustments */
+/* Responsive Adjustments - 携帯端末では左右の青い背景を非表示 */
 @media (max-width: 767px) {
     .pcbody {
         display: none; /* モバイルではPC版を非表示 */
     }
     
+    /* 携帯端末では左右の青い背景を完全に非表示 */
+    body::before,
+    body::after {
+        display: none;
+    }
+    
+    /* 携帯端末では全幅を使用 */
+    body {
+        background-color: #ffffff; /* 白い背景 */
+    }
+    
     .topbox {
         margin: 0 auto; /* 中央配置 */
-        width: 33.333vw; /* モバイルでも中央1/3に固定 */
-        padding: 25px 10px; /* モバイル用の内部余白 */
+        width: 100%; /* 携帯端末では全幅を使用 */
+        max-width: 500px; /* 適切な最大幅を設定 */
+        padding: 25px 20px; /* 適切なパディング */
     }
     
     .profbox img {

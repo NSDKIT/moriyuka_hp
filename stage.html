@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1,IE=edge">
+    <meta name="viewport" content="width=device-width,shrink-to-fit=no">
+    <meta name="format-detection" content="telephone=no">
+    <title>STAGE - もりゆか公式サイト</title>
+    <meta name="description" content="もりゆかの舞台出演作品ギャラリー">
+    
+    <!-- OGP Meta Tags -->
+    <meta property="og:title" content="STAGE - もりゆか公式サイト">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://cdn-icons-png.flaticon.com/128/8068/8068055.png">
+    <meta property="og:site_name" content="もりゆか公式サイト">
+    <meta property="og:description" content="もりゆかの舞台出演作品ギャラリー">
+    
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌸</text></svg>">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400&display=swap">
+    
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    
+    <style>
+        /* Stage Gallery Specific Styles */
+        body {
+            background: #c9d9ed;
+            min-height: 100vh;
+            color: #333;
+        }
+        
+        .stage-container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        .stage-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .stage-header h1 {
+            font-family: 'Work Sans', sans-serif;
+            font-size: 48px;
+            font-weight: 300;
+            letter-spacing: 8px;
+            margin-bottom: 20px;
+            color: #333;
+            text-shadow: none;
+        }
+        
+        .stage-header p {
+            font-size: 18px;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+        
+        .back-button {
+            position: fixed;
+            top: 30px;
+            left: 30px;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.9);
+            color: #333;
+            padding: 12px 20px;
+            border-radius: 25px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(200, 200, 200, 0.8);
+        }
+        
+        .back-button:hover {
+            background: rgba(255, 255, 255, 1);
+            transform: translateY(-2px);
+        }
+        
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+        
+        .stage-item {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            color: #333;
+        }
+        
+        .stage-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+        
+        .stage-poster {
+            width: 100%;
+            height: 400px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+        
+        .stage-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.8));
+            padding: 30px 20px 20px;
+            color: #fff;
+        }
+        
+        .stage-info {
+            padding: 25px;
+        }
+        
+        .stage-title {
+            font-size: 24px;
+            font-weight: 400;
+            margin-bottom: 10px;
+            font-family: 'Work Sans', sans-serif;
+        }
+        
+        .stage-year {
+            color: #b0b0b0;
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+        
+        .stage-description {
+            font-size: 14px;
+            line-height: 1.6;
+            opacity: 0.9;
+        }
+        
+        .stage-role {
+            display: inline-block;
+            background: #c9d9ed;
+            color: #333;
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 12px;
+            margin-top: 15px;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .stage-header h1 {
+                font-size: 36px;
+                letter-spacing: 4px;
+            }
+            
+            .gallery-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .back-button {
+                top: 20px;
+                left: 20px;
+                padding: 10px 16px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Back Button -->
+    <a href="index.html" class="back-button">
+        <i class="fas fa-arrow-left"></i> BACK TO MAIN
+    </a>
+
+    <div class="stage-container">
+        <!-- Header -->
+        <div class="stage-header">
+            <h1>STAGE</h1>
+            <p>もりゆかの舞台出演作品をご紹介します。演劇の世界で培った表現力と手話パフォーマンスの融合をご覧ください。</p>
+        </div>
+
+        <!-- Gallery Grid -->
+        <div class="gallery-grid">
+            <!-- Stage 1 -->
+            <div class="stage-item">
+                <div class="stage-poster" style="background-image: url('https://images.unsplash.com/photo-1507924538820-ede94a04019d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');">
+                    <div class="stage-overlay">
+                        <div class="stage-title">特殊刑事課24時</div>
+                        <div class="stage-year">2024年</div>
+                    </div>
+                </div>
+                <div class="stage-info">
+                    <div class="stage-description">
+                        サスペンス舞台の話題作。緊迫した展開の中で見せる演技力が高く評価された。
+                    </div>
+                    <span class="stage-role">主演</span>
+                </div>
+            </div>
+
+            <!-- Stage 2 -->
+            <div class="stage-item">
+                <div class="stage-poster" style="background-image: url('https://images.unsplash.com/photo-1514306191717-452ec28c7814?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');">
+                    <div class="stage-overlay">
+                        <div class="stage-title">奏</div>
+                        <div class="stage-year">2024年</div>
+                    </div>
+                </div>
+                <div class="stage-info">
+                    <div class="stage-description">
+                        音楽をテーマにした感動的な舞台作品。主演として圧倒的な存在感を見せた。
+                    </div>
+                    <span class="stage-role">主演</span>
+                </div>
+            </div>
+
+            <!-- Stage 3 -->
+            <div class="stage-item">
+                <div class="stage-poster" style="background-image: url('https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');">
+                    <div class="stage-overlay">
+                        <div class="stage-title">芝居にしてたまるか</div>
+                        <div class="stage-year">2023年 • さよならキャンプ2023</div>
+                    </div>
+                </div>
+                <div class="stage-info">
+                    <div class="stage-description">
+                        演劇をメタ的に扱った実験的な舞台作品。独特な世界観で観客を魅了した。
+                    </div>
+                    <span class="stage-role">出演</span>
+                </div>
+            </div>
+
+            <!-- Stage 4 -->
+            <div class="stage-item">
+                <div class="stage-poster" style="background-image: url('https://images.unsplash.com/photo-1503095396549-807759245b35?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');">
+                    <div class="stage-overlay">
+                        <div class="stage-title">ナスカの地上へ</div>
+                        <div class="stage-year">2023年 • タスサン</div>
+                    </div>
+                </div>
+                <div class="stage-info">
+                    <div class="stage-description">
+                        ミステリアスな物語を描いたタスサンの代表作。幻想的な世界観が印象的。
+                    </div>
+                    <span class="stage-role">出演</span>
+                </div>
+            </div>
+
+            <!-- Stage 5 -->
+            <div class="stage-item">
+                <div class="stage-poster" style="background-image: url('https://images.unsplash.com/photo-1489599663615-09281233b2db?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');">
+                    <div class="stage-overlay">
+                        <div class="stage-title">RAN MAN</div>
+                        <div class="stage-year">2023年 • タスサン</div>
+                    </div>
+                </div>
+                <div class="stage-info">
+                    <div class="stage-description">
+                        エネルギッシュな舞台パフォーマンス。ダンスと演技が融合した躍動感あふれる作品。
+                    </div>
+                    <span class="stage-role">出演</span>
+                </div>
+            </div>
+
+            <!-- Stage 6 -->
+            <div class="stage-item">
+                <div class="stage-poster" style="background-image: url('https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');">
+                    <div class="stage-overlay">
+                        <div class="stage-title">フシギなテレビジョン / 東京視察</div>
+                        <div class="stage-year">2023年 • タスサン</div>
+                    </div>
+                </div>
+                <div class="stage-info">
+                    <div class="stage-description">
+                        コメディー要素を含んだ現代的な舞台作品。多様な表現力で観客を楽しませた。
+                    </div>
+                    <span class="stage-role">出演</span>
+                </div>
+            </div>
+
+            <!-- Stage 7 -->
+            <div class="stage-item">
+                <div class="stage-poster" style="background-image: url('https://images.unsplash.com/photo-1540039155733-5bb30b53aa14?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');">
+                    <div class="stage-overlay">
+                        <div class="stage-title">大工の正やん</div>
+                        <div class="stage-year">2024年 • フクモクフェス</div>
+                    </div>
+                </div>
+                <div class="stage-info">
+                    <div class="stage-description">
+                        実演ブースでのMCを担当。観客との距離の近いパフォーマンスで会場を盛り上げた。
+                    </div>
+                    <span class="stage-role">MC・実演</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript for smooth animations -->
+    <script>
+        // Smooth scroll animations
+        document.addEventListener('DOMContentLoaded', function() {
+            const stageItems = document.querySelectorAll('.stage-item');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry, index) => {
+                    if (entry.isIntersecting) {
+                        setTimeout(() => {
+                            entry.target.style.opacity = '1';
+                            entry.target.style.transform = 'translateY(0)';
+                        }, index * 100);
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+            
+            stageItems.forEach((item, index) => {
+                item.style.opacity = '0';
+                item.style.transform = 'translateY(30px)';
+                item.style.transition = 'all 0.6s ease';
+                observer.observe(item);
+            });
+        });
+    </script>
+</body>
+</html>

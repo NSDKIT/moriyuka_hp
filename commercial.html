@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1,IE=edge">
+    <meta name="viewport" content="width=device-width,shrink-to-fit=no">
+    <meta name="format-detection" content="telephone=no">
+    <title>COMMERCIAL - もりゆか公式サイト</title>
+    <meta name="description" content="もりゆかのCM・広告出演作品ギャラリー">
+    
+    <!-- OGP Meta Tags -->
+    <meta property="og:title" content="COMMERCIAL - もりゆか公式サイト">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://cdn-icons-png.flaticon.com/128/8068/8068055.png">
+    <meta property="og:site_name" content="もりゆか公式サイト">
+    <meta property="og:description" content="もりゆかのCM・広告出演作品ギャラリー">
+    
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌸</text></svg>">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400&display=swap">
+    
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    
+    <style>
+        /* Commercial Gallery Specific Styles */
+        body {
+            background: #c9d9ed;
+            min-height: 100vh;
+            color: #333;
+        }
+        
+        .commercial-container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        .commercial-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .commercial-header h1 {
+            font-family: 'Work Sans', sans-serif;
+            font-size: 48px;
+            font-weight: 300;
+            letter-spacing: 8px;
+            margin-bottom: 20px;
+            color: #333;
+            text-shadow: none;
+        }
+        
+        .commercial-header p {
+            font-size: 18px;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+        
+        .back-button {
+            position: fixed;
+            top: 30px;
+            left: 30px;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.9);
+            color: #333;
+            padding: 12px 20px;
+            border-radius: 25px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(200, 200, 200, 0.8);
+        }
+        
+        .back-button:hover {
+            background: rgba(255, 255, 255, 1);
+            transform: translateY(-2px);
+        }
+        
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+        
+        .commercial-item {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            color: #333;
+        }
+        
+        .commercial-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+        
+        .commercial-poster {
+            width: 100%;
+            height: 400px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+        
+        .commercial-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.8));
+            padding: 30px 20px 20px;
+            color: #fff;
+        }
+        
+        .commercial-info {
+            padding: 25px;
+        }
+        
+        .commercial-title {
+            font-size: 24px;
+            font-weight: 400;
+            margin-bottom: 10px;
+            font-family: 'Work Sans', sans-serif;
+        }
+        
+        .commercial-year {
+            color: #b0b0b0;
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+        
+        .commercial-description {
+            font-size: 14px;
+            line-height: 1.6;
+            opacity: 0.9;
+        }
+        
+        .commercial-role {
+            display: inline-block;
+            background: #c9d9ed;
+            color: #333;
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 12px;
+            margin-top: 15px;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .commercial-header h1 {
+                font-size: 36px;
+                letter-spacing: 4px;
+            }
+            
+            .gallery-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .back-button {
+                top: 20px;
+                left: 20px;
+                padding: 10px 16px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Back Button -->
+    <a href="index.html" class="back-button">
+        <i class="fas fa-arrow-left"></i> BACK TO MAIN
+    </a>
+
+    <div class="commercial-container">
+        <!-- Header -->
+        <div class="commercial-header">
+            <h1>COMMERCIAL</h1>
+            <p>もりゆかのCM・広告出演作品をご紹介します。様々な商品やサービスのイメージキャラクターとして活躍しています。</p>
+        </div>
+
+        <!-- Gallery Grid -->
+        <div class="gallery-grid">
+            <!-- Commercial 1 -->
+            <div class="commercial-item">
+                <div class="commercial-poster" style="background-image: url('https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');">
+                    <div class="commercial-overlay">
+                        <div class="commercial-title">ラブリーパートナーエルパ</div>
+                        <div class="commercial-year">2024年 • CM</div>
+                    </div>
+                </div>
+                <div class="commercial-info">
+                    <div class="commercial-description">
+                        福井県の人気ショッピングセンターのCM出演。親しみやすいキャラクターで地域に愛される存在に。
+                    </div>
+                    <span class="commercial-role">出演</span>
+                </div>
+            </div>
+
+            <!-- Commercial 2 -->
+            <div class="commercial-item">
+                <div class="commercial-poster" style="background-image: url('https://images.unsplash.com/photo-1441986300917-64674bd600d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');">
+                    <div class="commercial-overlay">
+                        <div class="commercial-title">福井県若者情報発信局FWI</div>
+                        <div class="commercial-year">2024年 • 株式会社FPEC</div>
+                    </div>
+                </div>
+                <div class="commercial-info">
+                    <div class="commercial-description">
+                        若者向け情報発信プロジェクトのCM。地元福井の魅力を同世代に向けて発信する重要な役割を担った。
+                    </div>
+                    <span class="commercial-role">出演</span>
+                </div>
+            </div>
+
+            <!-- Commercial 3 -->
+            <div class="commercial-item">
+                <div class="commercial-poster" style="background-image: url('https://images.unsplash.com/photo-1542838132-92c53300491e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');">
+                    <div class="commercial-overlay">
+                        <div class="commercial-title">青々吉日プロモーション</div>
+                        <div class="commercial-year">2024年</div>
+                    </div>
+                </div>
+                <div class="commercial-info">
+                    <div class="commercial-description">
+                        季節感あふれるプロモーション映像。自然な表情と演技で商品の魅力を伝えた。
+                    </div>
+                    <span class="commercial-role">出演</span>
+                </div>
+            </div>
+
+            <!-- Commercial 4 -->
+            <div class="commercial-item">
+                <div class="commercial-poster" style="background-image: url('https://images.unsplash.com/photo-1498654896293-37aacf113fd9?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');">
+                    <div class="commercial-overlay">
+                        <div class="commercial-title">溝田設計事務所</div>
+                        <div class="commercial-year">2024年 • CM</div>
+                    </div>
+                </div>
+                <div class="commercial-info">
+                    <div class="commercial-description">
+                        建築設計事務所のプロモーションCM。専門性と親しみやすさを兼ね備えた表現で信頼感を演出。
+                    </div>
+                    <span class="commercial-role">出演</span>
+                </div>
+            </div>
+
+            <!-- Commercial 5 -->
+            <div class="commercial-item">
+                <div class="commercial-poster" style="background-image: url('https://images.unsplash.com/photo-1523275335684-37898b6baf30?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');">
+                    <div class="commercial-overlay">
+                        <div class="commercial-title">読売連合広告社</div>
+                        <div class="commercial-year">2024年 • Web広告</div>
+                    </div>
+                </div>
+                <div class="commercial-info">
+                    <div class="commercial-description">
+                        大手広告代理店のWeb広告に出演。洗練されたビジュアルで注目を集めた。
+                    </div>
+                    <span class="commercial-role">モデル・出演</span>
+                </div>
+            </div>
+
+            <!-- Commercial 6 -->
+            <div class="commercial-item">
+                <div class="commercial-poster" style="background-image: url('https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');">
+                    <div class="commercial-overlay">
+                        <div class="commercial-title">セントピアあわら（越の湯グループ）</div>
+                        <div class="commercial-year">2024年 • プロモーション</div>
+                    </div>
+                </div>
+                <div class="commercial-info">
+                    <div class="commercial-description">
+                        温泉リゾート施設のプロモーションモデル。リラックスした表情で施設の魅力を表現した。
+                    </div>
+                    <span class="commercial-role">モデル</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript for smooth animations -->
+    <script>
+        // Smooth scroll animations
+        document.addEventListener('DOMContentLoaded', function() {
+            const commercialItems = document.querySelectorAll('.commercial-item');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry, index) => {
+                    if (entry.isIntersecting) {
+                        setTimeout(() => {
+                            entry.target.style.opacity = '1';
+                            entry.target.style.transform = 'translateY(0)';
+                        }, index * 100);
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+            
+            commercialItems.forEach((item, index) => {
+                item.style.opacity = '0';
+                item.style.transform = 'translateY(30px)';
+                item.style.transition = 'all 0.6s ease';
+                observer.observe(item);
+            });
+        });
+    </script>
+</body>
+</html>
