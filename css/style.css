@@ -634,9 +634,10 @@ header nav ul li a:hover {
 }
 
 .profbox img {
-    width: 160px; /* サイズをやや小さく */
-    height: 160px;
-    border-radius: 50%;
+    width: 100%; /* 中央1/3いっぱいの幅 */
+    height: auto; /* 縦横比を保持 */
+    max-width: 29vw; /* 中央1/3エリアの最大幅 */
+    border-radius: 0; /* 丸型を解除 */
     object-fit: cover;
 }
 
@@ -674,8 +675,10 @@ header nav ul li a:hover {
     }
     
     .profbox img {
-        width: 180px; /* デスクトップでは少し大きく */
-        height: 180px;
+        width: 100%; /* 中央1/3いっぱいの幅 */
+        height: auto; /* 縦横比を保持 */
+        max-width: 29vw; /* 中央1/3エリアの最大幅 */
+        border-radius: 0; /* 丸型を解除 */
     }
     
     .profbox section {
@@ -729,7 +732,7 @@ header nav ul li a:hover {
 .snslist li a {
     display: flex;
     align-items: center;
-    padding: 18px 20px; /* パディングを調整 */
+    padding: 18px 20px; /* 元のパディングに戻す */
     text-decoration: none;
     color: #333; /* 黒色に変更 */
     width: 100%; /* 幅を確実に取る */
@@ -809,11 +812,11 @@ header nav ul li a:hover {
 }
 
 .worklist li {
-    background: #e8f1f8; /* 白よりのライトブルー */
+    background: #ffffff; /* 白い背景（SNSセクションと同じ） */
     border-radius: 12px;
     overflow: hidden;
     transition: transform 0.3s ease;
-    box-shadow: none;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* SNSセクションと同じシャドウ */
     border: none;
 }
 
@@ -824,6 +827,7 @@ header nav ul li a:hover {
 .worklist li a {
     display: flex;
     align-items: center;
+    justify-content: center; /* 中央揃え */
     padding: 18px 20px; /* SNSセクションと同じパディング */
     text-decoration: none;
     color: #333;
@@ -831,30 +835,18 @@ header nav ul li a:hover {
 }
 
 .worklist li a img {
-    width: 36px; /* SNSセクションと同じサイズ */
-    height: 36px;
-    margin-right: 15px;
-    background: transparent;
-    border-radius: 8px;
-    object-fit: contain;
-    padding: 2px;
+    display: none; /* アイコンを非表示 */
 }
 
 .worklist li a p {
-    flex: 1;
     font-size: 15px; /* SNSセクションと同じサイズ */
     font-weight: 400;
+    text-align: center; /* テキストを中央揃え */
+    width: 100%; /* 全幅を使用 */
 }
 
 .worklist li a .ws {
-    font-size: 16px; /* SNSセクションと同じサイズ */
-    color: #666; /* SNSセクションと同じ色 */
-    margin-left: auto; /* 右端に配置 */
-    padding: 40px 20px 20px 20px;
-    font-family: "Work Sans", sans-serif;
-    text-transform: uppercase;
-    text-decoration: none !important; /* 紫の線を完全に削除 */
-    border-bottom: none !important;
+    display: none; /* 矢印アイコンを非表示（中央揃えのため） */
 }
 
 
@@ -1057,6 +1049,41 @@ footer {
     /* 携帯端末では全幅を使用 */
     body {
         background-color: #ffffff; /* 白い背景 */
+    }
+    
+    /* 携帯端末での各セクション背景色設定（交互にライトブルーと白） */
+    #profile {
+        background-color: #c9d9ed; /* ライトブルー */
+    }
+    
+    #oicot {
+        background-color: #ffffff; /* 白 */
+    }
+    
+    #sns {
+        background-color: #c9d9ed; /* ライトブルー */
+    }
+    
+    #news {
+        background-color: #ffffff; /* 白 */
+    }
+    
+    #works {
+        background-color: #c9d9ed; /* ライトブルー */
+    }
+    
+    #contact {
+        background-color: #ffffff; /* 白 */
+    }
+    
+    /* 携帯端末用セクション内の.topboxは透明背景に */
+    #profile .topbox,
+    #oicot .topbox,
+    #sns .topbox,
+    #news .topbox,
+    #works .topbox,
+    #contact .topbox {
+        background-color: transparent;
     }
     
     .topbox {

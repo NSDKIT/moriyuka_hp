@@ -1,0 +1,4698 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OICOT FUKUI | 地方エンタメ事務所</title>
+    <meta name="description" content=""夢"を"現実"に！上京しなくても、夢は叶う。OICOT FUKUIは福井発の地方エンタメ事務所です。ライバー・タレント登録受付中。">
+    <meta name="keywords" content="地方エンタメ,ライバー事務所,福井,タレント,配信,もりゆか,OICOT">
+    
+    <!-- OGP Meta Tags -->
+    <meta property="og:title" content="OICOT FUKUI | 地方エンタメ事務所">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1557804506-669a67965ba0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=630&q=80">
+    <meta property="og:site_name" content="OICOT FUKUI">
+    <meta property="og:description" content=""夢"を"現実"に！上京しなくても、夢は叶う。OICOT FUKUIは福井発の地方エンタメ事務所です。">
+    <meta property="og:url" content="https://oicot-fukui.com">
+    
+    <!-- Twitter Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="OICOT FUKUI | 地方エンタメ事務所">
+    <meta name="twitter:description" content=""夢"を"現実"に！上京しなくても、夢は叶う。OICOT FUKUIは福井発の地方エンタメ事務所です。">
+    <meta name="twitter:image" content="https://images.unsplash.com/photo-1557804506-669a67965ba0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=630&q=80">
+    
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎯</text></svg>">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700;900&family=Work+Sans:wght@300;400;500;600;700&display=swap">
+    
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    
+    <style>
+        /* ==============================================
+           OICOT FUKUI - 321.inc同等UI/UX実装
+           要件定義書準拠コーポレート/採用/登録導線サイト
+        ============================================== */
+        
+        /* Reset & Base */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Noto Sans JP', 'Work Sans', sans-serif;
+            font-size: 16px;
+            line-height: 1.7;
+            color: #333;
+            background-color: #fff;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        
+        /* Container & Grid System (12 Column, 1280px max) */
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+        
+        .section {
+            padding: 80px 0;
+        }
+        
+        .section-large {
+            padding: 120px 0;
+        }
+        
+        /* Typography */
+        .h1 {
+            font-size: 3.5rem;
+            font-weight: 900;
+            line-height: 1.2;
+            letter-spacing: 0.02em;
+        }
+        
+        .h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            line-height: 1.3;
+            margin-bottom: 2rem;
+        }
+        
+        .h3 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            line-height: 1.4;
+            margin-bottom: 1.5rem;
+        }
+        
+        .h4 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            line-height: 1.4;
+            margin-bottom: 1rem;
+        }
+        
+        /* Color System - Light Blue Theme */
+        :root {
+            --primary-color: #5DADE2;
+            --secondary-color: #85C1E9;
+            --accent-color: #AED6F1;
+            --text-color: #2E86AB;
+            --text-light: #5DADE2;
+            --text-muted: #85C1E9;
+            --background-light: #F8FCFF;
+            --white: #FFFFFF;
+            --gradient-primary: linear-gradient(135deg, #5DADE2 0%, #85C1E9 100%);
+            --gradient-hero: linear-gradient(135deg, rgba(93, 173, 226, 0.1) 0%, rgba(133, 193, 233, 0.1) 100%);
+        }
+        
+        /* Header Navigation */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            transition: all 0.3s ease;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+        
+        .header.scrolled {
+            background: rgba(255, 255, 255, 0.98);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .nav-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1rem 0;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+        
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+        
+        .nav-menu a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-menu a:hover {
+            color: var(--primary-color);
+        }
+        
+        .cta-nav {
+            background: var(--gradient-primary);
+            color: white !important;
+            padding: 0.75rem 1.5rem;
+            border-radius: 30px;
+            transition: transform 0.3s ease;
+        }
+        
+        .cta-nav:hover {
+            transform: translateY(-2px);
+            color: white !important;
+        }
+        
+        /* Mobile Navigation */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 3px;
+        }
+        
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: var(--text-color);
+            transition: all 0.3s ease;
+        }
+        
+        /* Hero Section with Marquee Animation - White Base */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--text-color);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        /* Marquee Animation Container */
+        .marquee-container {
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 40%;
+            height: 100%;
+            display: flex;
+            gap: 20px;
+            padding: 0 20px;
+            z-index: 1;
+            opacity: 0;
+            transform: translateX(100px);
+            transition: all 1s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        
+        .marquee-column {
+            flex: 1;
+            height: 100%;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .marquee-content {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            animation-duration: 35s;
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
+        }
+        
+        /* First column - scroll up */
+        .marquee-column:first-child .marquee-content {
+            animation-name: scrollUp;
+        }
+        
+        /* Second column - scroll down */
+        .marquee-column:last-child .marquee-content {
+            animation-name: scrollDown;
+        }
+        
+        .marquee-item {
+            width: 100%;
+            min-height: 300px;
+            border-radius: 24px;
+            overflow: hidden;
+            position: relative;
+            flex-shrink: 0;
+            box-shadow: 0 12px 48px rgba(93, 173, 226, 0.15);
+            border: 4px solid rgba(93, 173, 226, 0.2);
+            backdrop-filter: blur(15px);
+            transition: all 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        
+        .marquee-item:hover {
+            transform: scale(1.1);
+            z-index: 10;
+            box-shadow: 0 20px 60px rgba(93, 173, 226, 0.25);
+            border: 4px solid rgba(93, 173, 226, 0.4);
+        }
+        
+        .marquee-item img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .marquee-item:hover img {
+            transform: scale(1.2);
+        }
+        
+        /* Colorful shapes mixed with images - Extra Large Size */
+        .marquee-shape {
+            width: 100%;
+            min-height: 300px;
+            border-radius: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            color: white;
+            font-size: 1.6rem;
+            text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.4);
+            box-shadow: 0 12px 48px rgba(93, 173, 226, 0.15);
+            border: 4px solid rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(15px);
+            transition: all 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        
+        .marquee-shape:hover {
+            transform: scale(1.1) rotate(3deg);
+            box-shadow: 0 20px 60px rgba(93, 173, 226, 0.25);
+        }
+        
+        /* Shape variations - Light Blue Theme */
+        .shape-1 { background: linear-gradient(135deg, #5DADE2, #85C1E9); }
+        .shape-2 { background: linear-gradient(135deg, #3498DB, #5DADE2); }
+        .shape-3 { background: linear-gradient(135deg, #AED6F1, #D6EAF8); }
+        .shape-4 { background: linear-gradient(135deg, #2E86AB, #5DADE2); }
+        .shape-5 { background: linear-gradient(135deg, #85C1E9, #AED6F1); }
+        .shape-6 { background: linear-gradient(135deg, #1B4F72, #2E86AB); }
+        
+        /* Hero Content Adjustment for White Background */
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 60%;
+            margin-right: auto;
+            padding-right: 2rem;
+        }
+        
+        .hero-subtitle {
+            color: var(--text-light);
+        }
+        
+        .hero-title {
+            color: var(--text-color);
+            background: linear-gradient(45deg, #2E86AB, #5DADE2, #85C1E9, #AED6F1);
+            background-size: 300% 300%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: textShimmer 4s ease-in-out infinite;
+        }
+        
+        .hero-description {
+            color: var(--text-light);
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(255, 255, 255, 0.1);
+        }
+        
+        /* Animated Background Elements for Light Blue Theme */
+        .hero::after {
+            content: '';
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="20" cy="20" r="1" fill="%235DADE2" opacity="0.06"/><circle cx="60" cy="40" r="0.8" fill="%2385C1E9" opacity="0.05"/><circle cx="30" cy="70" r="1.2" fill="%23AED6F1" opacity="0.07"/><circle cx="80" cy="80" r="0.6" fill="%233498DB" opacity="0.04"/><circle cx="45" cy="25" r="0.9" fill="%232E86AB" opacity="0.05"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+            animation: backgroundMove 20s linear infinite;
+            z-index: 1;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.125rem;
+            font-weight: 300;
+            margin-bottom: 1rem;
+            letter-spacing: 0.1em;
+        }
+        
+        .hero-title {
+            font-size: 4rem;
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .hero-description {
+            font-size: 1.25rem;
+            margin-bottom: 3rem;
+            font-weight: 300;
+            line-height: 1.6;
+        }
+        
+        /* CTA Button - 主要KPI最適化 */
+        .btn {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: var(--gradient-primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.125rem;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s;
+        }
+        
+        .btn:hover::before {
+            left: 100%;
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            border: 2px solid white;
+            margin-left: 1rem;
+        }
+        
+        .btn-secondary:hover {
+            background: white;
+            color: var(--primary-color);
+        }
+        
+        /* About OICOT Section - 321.inc Style Layout */
+        .about-section {
+            background: #ffffff;
+            padding: 100px 0;
+            position: relative;
+        }
+        
+        .about-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: flex-start;
+            gap: 4rem;
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .about-left {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2rem;
+        }
+        
+        .about-character {
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(135deg, #5DADE2, #85C1E9);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2rem;
+            font-weight: 900;
+            box-shadow: 0 8px 32px rgba(93, 173, 226, 0.3);
+            position: relative;
+            z-index: 2;
+        }
+        
+        .about-character::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            width: 40px;
+            height: 40px;
+            background: #FF6B35;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1rem;
+            font-weight: bold;
+        }
+        
+        .about-person-frame {
+            width: 550px;
+            height: 650px;
+            border-radius: 24px;
+            position: relative;
+            box-shadow: 0 20px 64px rgba(0, 0, 0, 0.15);
+            overflow: hidden;
+        }
+        
+        .about-person-image {
+            width: 100%;
+            height: 100%;
+            border-radius: 18px;
+            overflow: hidden;
+        }
+        
+        .about-person-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+        
+        .about-person-frame:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 64px rgba(93, 173, 226, 0.3);
+        }
+        
+        .about-person-frame:hover .about-person-image img {
+            transform: scale(1.05);
+        }
+        
+        .about-right {
+            padding-left: 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+        
+        .about-title {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--text-color);
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+        
+        .about-description {
+            font-size: 1.5rem;
+            color: var(--text-color);
+            line-height: 1.6;
+            margin-bottom: 3rem;
+            font-weight: 500;
+        }
+        
+        .about-cta {
+            display: inline-flex;
+            align-items: center;
+            padding: 1rem 2rem;
+            background: linear-gradient(135deg, #FF6B35, #FF8F5A);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1.125rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(255, 107, 53, 0.3);
+        }
+        
+        .about-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(255, 107, 53, 0.4);
+            color: white;
+        }
+        
+        .about-cta i {
+            margin-left: 0.5rem;
+            font-size: 1rem;
+        }
+        
+
+        
+
+        
+
+        
+
+        
+        .about-right-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+        }
+        
+        .about-right-image {
+            width: 550px;
+            height: 650px;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 20px 64px rgba(0, 0, 0, 0.15);
+            transition: all 0.3s ease;
+        }
+        
+        .about-right-image:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 64px rgba(0, 0, 0, 0.25);
+        }
+        
+        .about-right-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+        
+        .about-right-image:hover img {
+            transform: scale(1.05);
+        }
+        
+        /* Manager Interview Section - 321.inc Style */
+        .interview-section {
+            background: #ffffff;
+            padding: 100px 0;
+        }
+        
+        .interview-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .interview-header {
+            display: flex;
+            align-items: flex-end;
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+        
+        .interview-number {
+            font-size: 8rem;
+            font-weight: 900;
+            color: #5DADE2;
+            line-height: 1;
+            opacity: 0.3;
+        }
+        
+        .interview-title-wrapper {
+            flex: 1;
+        }
+        
+        .interview-label {
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: #5DADE2;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+        
+        .interview-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--text-color);
+            margin: 0;
+        }
+        
+        .interview-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 4rem;
+        }
+        
+        .interview-card {
+            background: #ffffff;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .interview-card:hover {
+            transform: translateY(-8px);
+        }
+        
+        .interview-image {
+            width: 100%;
+            height: 300px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .interview-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+        
+        .interview-card:hover .interview-image img {
+            transform: scale(1.05);
+        }
+        
+        .interview-content {
+            position: relative;
+            padding: 2rem;
+            background: linear-gradient(135deg, #5DADE2, #85C1E9);
+            color: white;
+        }
+        
+        .interview-text p {
+            font-size: 1.25rem;
+            font-weight: 600;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+        }
+        
+        .interviewer-info .role {
+            font-size: 0.875rem;
+            font-weight: 400;
+            opacity: 0.8;
+            margin-bottom: 0.25rem;
+        }
+        
+        .interviewer-info .name {
+            font-size: 1.125rem;
+            font-weight: 700;
+            margin: 0;
+        }
+        
+        .interview-summary {
+            padding: 1.5rem 2rem;
+            font-size: 0.875rem;
+            color: var(--text-light);
+            line-height: 1.6;
+            margin: 0;
+        }
+        
+        .view-more-section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 3rem;
+        }
+        
+        .view-more-btn {
+            background: #00B8A9;
+            color: white;
+            border: none;
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            font-size: 1.125rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .view-more-btn:hover {
+            background: #009688;
+            transform: translateY(-2px);
+        }
+        
+        .registration-cta {
+            background: #2C3E50;
+            color: white;
+            text-decoration: none;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            line-height: 1.4;
+            text-align: center;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .registration-cta:hover {
+            background: #34495E;
+            transform: translateY(-2px);
+            color: white;
+        }
+        
+        /* Benefit Section - 321.inc Style */
+        .benefit-section {
+            background: #ffffff;
+            padding: 100px 0;
+        }
+        
+        .benefit-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .benefit-header {
+            display: flex;
+            align-items: flex-end;
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+        
+        .benefit-number {
+            font-size: 8rem;
+            font-weight: 900;
+            color: #5DADE2;
+            line-height: 1;
+            opacity: 0.3;
+        }
+        
+        .benefit-title-wrapper {
+            flex: 1;
+        }
+        
+        .benefit-label {
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: #5DADE2;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+        
+        .benefit-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--text-color);
+            margin: 0;
+            line-height: 1.3;
+        }
+        
+        .benefit-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 4rem;
+        }
+        
+        .benefit-card {
+            position: relative;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .benefit-card:hover {
+            transform: translateY(-8px);
+        }
+        
+        .benefit-image {
+            width: 100%;
+            height: 300px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .benefit-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+        
+        .benefit-card:hover .benefit-image img {
+            transform: scale(1.05);
+        }
+        
+        .award-image {
+            background: linear-gradient(135deg, #1a365d, #2c5aa0);
+        }
+        
+        .award-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(26, 54, 93, 0.8), rgba(44, 90, 160, 0.8));
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+        }
+        
+        .award-text h3 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            text-align: center;
+        }
+        
+        .award-text p {
+            font-size: 1.125rem;
+            opacity: 0.9;
+            text-align: center;
+        }
+        
+        .award-trophy {
+            font-size: 3rem;
+            margin-top: 1rem;
+        }
+        
+        .benefit-label-bottom {
+            padding: 1rem 1.5rem;
+            background: white;
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text-color);
+            border-top: 1px solid #f0f0f0;
+        }
+        
+        .benefit-view-more-section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 3rem;
+            margin-bottom: 4rem;
+        }
+        
+        .benefit-event-section {
+            border-top: 1px solid #e0e0e0;
+            padding-top: 3rem;
+        }
+        
+        .event-header {
+            text-align: left;
+        }
+        
+        .event-label {
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: #5DADE2;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+        
+        .event-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-color);
+            margin: 0 0 2rem 0;
+        }
+        
+        .events-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .event-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .event-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+        }
+        
+        .event-image {
+            width: 100%;
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .event-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+        
+        .event-card:hover .event-image img {
+            transform: scale(1.05);
+        }
+        
+        .event-info {
+            padding: 1.5rem;
+        }
+        
+        .event-date {
+            font-size: 0.875rem;
+            color: #666;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+        
+        .event-name {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text-color);
+            line-height: 1.4;
+            margin: 0;
+        }
+        
+        .events-view-more {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid #e0e0e0;
+        }
+        
+        /* Data Section - 321.inc Style */
+        .data-section-321 {
+            background: #ffffff;
+            padding: 100px 0;
+        }
+        
+        .data-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .data-header {
+            display: flex;
+            align-items: flex-end;
+            gap: 2rem;
+            margin-bottom: 4rem;
+            position: relative;
+        }
+        
+        .data-number {
+            font-size: 8rem;
+            font-weight: 900;
+            color: #5DADE2;
+            line-height: 1;
+            opacity: 0.3;
+        }
+        
+        .data-title-wrapper {
+            flex: 1;
+        }
+        
+        .data-label {
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: #5DADE2;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+        
+        .data-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--text-color);
+            margin: 0;
+        }
+        
+        .data-character {
+            width: 150px;
+            height: 150px;
+        }
+        
+        .data-character img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+        
+        .data-main-stat {
+            text-align: center;
+            margin-bottom: 4rem;
+            position: relative;
+        }
+        
+        .stat-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--text-color);
+            margin-bottom: 2rem;
+        }
+        
+        .big-number {
+            display: flex;
+            align-items: baseline;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .number-prefix {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--text-color);
+        }
+        
+        .main-number {
+            font-size: 6rem;
+            font-weight: 900;
+            color: #5DADE2;
+            line-height: 1;
+        }
+        
+        .number-suffix {
+            font-size: 2rem;
+            font-weight: 600;
+            color: var(--text-color);
+        }
+        
+        .people-icons {
+            margin: 2rem 0;
+            opacity: 0.3;
+        }
+        
+        .people-row {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .people-icon {
+            font-size: 2rem;
+            color: #ccc;
+        }
+        
+        .data-note {
+            font-size: 0.875rem;
+            color: #666;
+            text-align: right;
+            margin-top: 1rem;
+        }
+        
+        .demographics-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            margin-bottom: 4rem;
+        }
+        
+        .demo-item {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+        
+        .demo-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--text-color);
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        
+        .gender-stats {
+            margin-bottom: 2rem;
+            min-height: 120px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .gender-bar {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+        
+        .gender-label {
+            width: 60px;
+            font-weight: 600;
+        }
+        
+        .bar-container {
+            flex: 1;
+            height: 30px;
+            background: #f0f0f0;
+            border-radius: 4px;
+            position: relative;
+        }
+        
+        .bar {
+            height: 100%;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding-right: 0.5rem;
+            font-weight: 600;
+            color: white;
+        }
+        
+        .female-bar {
+            background: #FF4757;
+        }
+        
+        .male-bar {
+            background: #2F3542;
+        }
+        
+        .age-stats {
+            margin-bottom: 2rem;
+            min-height: 120px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .age-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+        
+        .age-range {
+            font-weight: 600;
+        }
+        
+        .age-percent {
+            font-weight: 700;
+            font-size: 1.125rem;
+        }
+        
+        .main-age {
+            font-size: 2rem;
+            color: #5DADE2;
+        }
+        
+        .demo-comment {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            background: #f8f9fa;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-top: auto;
+            min-height: 80px;
+        }
+        
+        .demo-comment img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+        
+        .demo-comment p {
+            font-size: 0.875rem;
+            line-height: 1.4;
+            margin: 0;
+        }
+        
+        .comparison-section {
+            margin-top: 4rem;
+        }
+        
+        .comparison-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--text-color);
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        
+        .comparison-table {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .table-header {
+            display: grid;
+            grid-template-columns: 2fr 1.5fr 1.5fr 1fr 1fr;
+            background: #f8f9fa;
+        }
+        
+        .table-row {
+            display: grid;
+            grid-template-columns: 2fr 1.5fr 1.5fr 1fr 1fr;
+            border-top: 1px solid #e0e0e0;
+        }
+        
+        .table-cell {
+            padding: 1rem 0.75rem;
+            font-size: 0.875rem;
+            display: flex;
+            align-items: center;
+            border-right: 1px solid #e0e0e0;
+        }
+        
+        .table-cell:last-child {
+            border-right: none;
+        }
+        
+        .oicot-header {
+            background: #5DADE2;
+            color: white;
+            font-weight: 700;
+            justify-content: center;
+        }
+        
+        .oicot-cell {
+            background: #E3F2FD;
+            font-weight: 600;
+            color: #1976D2;
+        }
+        
+        .row-label {
+            font-weight: 600;
+            background: #fafafa;
+        }
+        
+        /* Liver Voices Section - 321.inc Style */
+        .liver-voices-section {
+            background: #ffffff;
+            padding: 100px 0;
+        }
+        
+        .liver-voices-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .voices-header {
+            display: flex;
+            align-items: flex-end;
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+        
+        .voices-number {
+            font-size: 8rem;
+            font-weight: 900;
+            color: #5DADE2;
+            line-height: 1;
+            opacity: 0.3;
+        }
+        
+        .voices-title-wrapper {
+            flex: 1;
+        }
+        
+        .voices-label {
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: #5DADE2;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+        
+        .voices-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--text-color);
+            margin: 0 0 0.5rem 0;
+        }
+        
+        .voices-subtitle {
+            font-size: 1rem;
+            color: var(--text-light);
+            margin: 0;
+        }
+        
+        .voices-grid-321 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+        
+        .voice-card-321 {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .voice-card-321:hover {
+            transform: translateY(-5px);
+        }
+        
+        .voice-avatar-321 {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 1rem;
+        }
+        
+        .voice-name-321 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-color);
+            margin-bottom: 0.5rem;
+        }
+        
+        .voice-role-321 {
+            font-size: 0.875rem;
+            color: #5DADE2;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        
+        .voice-comment-321 {
+            font-size: 0.875rem;
+            color: var(--text-light);
+            line-height: 1.6;
+            margin: 0;
+        }
+        
+        /* New Liver Section */
+        .new-liver-section {
+            background: #2C3E50;
+            padding: 100px 0;
+            color: white;
+        }
+        
+        .new-liver-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .new-liver-header {
+            text-align: left;
+            margin-bottom: 4rem;
+        }
+        
+        .new-liver-label {
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: #5DADE2;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+        
+        .new-liver-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: white;
+            margin: 0 0 0.5rem 0;
+        }
+        
+        .new-liver-subtitle {
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.8);
+            margin: 0;
+        }
+        
+        .new-liver-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+        }
+        
+        .new-liver-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            position: relative;
+            transition: transform 0.3s ease;
+        }
+        
+        .new-liver-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .new-badge {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            background: #FF4757;
+            color: white;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            z-index: 2;
+        }
+        
+        .new-liver-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        .new-liver-name {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text-color);
+            margin: 1rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .new-liver-room {
+            font-size: 0.875rem;
+            color: var(--text-light);
+            margin: 0 1rem 1rem 1rem;
+        }
+        
+        /* Current Liver Section */
+        .current-liver-section {
+            background: #2C3E50;
+            padding: 100px 0;
+            color: white;
+        }
+        
+        .current-liver-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .current-liver-header {
+            text-align: left;
+            margin-bottom: 4rem;
+        }
+        
+        .current-liver-label {
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: #5DADE2;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+        
+        .current-liver-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: white;
+            margin: 0;
+        }
+        
+        .current-liver-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .current-liver-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 4px solid;
+            transition: transform 0.3s ease;
+        }
+        
+        .current-liver-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .yellow-border { border-color: #F39C12; }
+        .pink-border { border-color: #E91E63; }
+        .blue-border { border-color: #3498DB; }
+        .green-border { border-color: #2ECC71; }
+        
+        .current-liver-card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+        
+        .current-liver-name {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text-color);
+            margin: 1rem;
+            text-align: center;
+        }
+        
+        .view-more-center {
+            text-align: center;
+        }
+        
+        /* Liver Ranking Section */
+        .liver-ranking-section {
+            background: #2C3E50;
+            padding: 100px 0;
+            color: white;
+        }
+        
+        .liver-ranking-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .ranking-header-321 {
+            text-align: left;
+            margin-bottom: 3rem;
+        }
+        
+        .ranking-label-321 {
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: #5DADE2;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+        
+        .ranking-title-321 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: white;
+            margin: 0 0 0.5rem 0;
+        }
+        
+        .ranking-subtitle-321 {
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.8);
+            margin: 0 0 0.25rem 0;
+        }
+        
+        .ranking-note-321 {
+            font-size: 0.875rem;
+            color: rgba(255, 255, 255, 0.6);
+            margin: 0;
+        }
+        
+        .ranking-tabs-321 {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 3rem;
+        }
+        
+        .ranking-tab-321 {
+            background: transparent;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            color: rgba(255, 255, 255, 0.8);
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .ranking-tab-321.active,
+        .ranking-tab-321:hover {
+            border-color: #5DADE2;
+            color: #5DADE2;
+        }
+        
+        .ranking-grid-321 {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+        }
+        
+        .ranking-item-321 {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            position: relative;
+            transition: transform 0.3s ease;
+        }
+        
+        .ranking-item-321:hover {
+            transform: translateY(-5px);
+        }
+        
+        .rank-number {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            background: #95A5A6;
+            color: white;
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 0.875rem;
+            font-weight: 700;
+            z-index: 2;
+        }
+        
+        .gold { background: #F39C12; }
+        .silver { background: #95A5A6; }
+        .bronze { background: #CD7F32; }
+        
+        .ranking-item-321 img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+        
+        .ranking-name-321 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text-color);
+            margin: 1rem 1rem 0.5rem 1rem;
+        }
+        
+        .ranking-room-321 {
+            font-size: 0.875rem;
+            color: var(--text-light);
+            margin: 0 1rem 1rem 1rem;
+        }
+        
+        /* FAQ Section - 321.inc Style */
+        .faq-section-321 {
+            background: #ffffff;
+            padding: 100px 0;
+        }
+        
+        .faq-container-321 {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .faq-header-321 {
+            display: flex;
+            align-items: flex-end;
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+        
+        .faq-number {
+            font-size: 8rem;
+            font-weight: 900;
+            color: #5DADE2;
+            line-height: 1;
+            opacity: 0.3;
+        }
+        
+        .faq-title-wrapper {
+            flex: 1;
+        }
+        
+        .faq-label-321 {
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: #5DADE2;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+        
+        .faq-title-321 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--text-color);
+            margin: 0;
+        }
+        
+        .faq-list-321 {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .faq-item-321 {
+            background: white;
+            border-radius: 12px;
+            margin-bottom: 1rem;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            border: 1px solid #f0f0f0;
+        }
+        
+        .faq-question-321 {
+            width: 100%;
+            padding: 1.5rem 2rem;
+            background: none;
+            border: none;
+            text-align: left;
+            font-weight: 600;
+            font-size: 1.125rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            transition: background-color 0.3s ease;
+            color: var(--text-color);
+        }
+        
+        .faq-question-321:hover {
+            background: #f8f9fa;
+        }
+        
+        .faq-icon-321 {
+            transition: transform 0.3s ease;
+            color: #5DADE2;
+            font-size: 1rem;
+        }
+        
+        .faq-item-321.active .faq-icon-321 {
+            transform: rotate(180deg);
+        }
+        
+        .faq-answer-321 {
+            padding: 0 2rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            background: #f8f9fa;
+        }
+        
+        .faq-item-321.active .faq-answer-321 {
+            max-height: 200px;
+            padding: 1.5rem 2rem;
+        }
+        
+        .faq-answer-321 p {
+            font-size: 1rem;
+            color: var(--text-light);
+            line-height: 1.6;
+            margin: 0;
+        }
+        
+        /* Founder Message Section - 321.inc Style */
+        .founder-message-section {
+            background: #2C3E50;
+            padding: 100px 0;
+            color: white;
+        }
+        
+        .founder-message-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .founder-header {
+            display: flex;
+            align-items: flex-end;
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+        
+        .founder-number {
+            font-size: 8rem;
+            font-weight: 900;
+            color: #5DADE2;
+            line-height: 1;
+            opacity: 0.3;
+        }
+        
+        .founder-title-wrapper {
+            flex: 1;
+        }
+        
+        .founder-label {
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: #5DADE2;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+        
+        .founder-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: white;
+            margin: 0;
+        }
+        
+        .founder-content {
+            display: grid;
+            grid-template-columns: 1fr 400px;
+            gap: 4rem;
+            align-items: start;
+        }
+        
+        .founder-text {
+            flex: 1;
+        }
+        
+        .founder-quote {
+            font-size: 1.125rem;
+            line-height: 1.8;
+            color: white;
+            margin-bottom: 2rem;
+            font-style: italic;
+            position: relative;
+            padding-left: 1rem;
+            border-left: 3px solid #5DADE2;
+        }
+        
+        .founder-paragraph {
+            font-size: 1rem;
+            line-height: 1.8;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 1.5rem;
+        }
+        
+        .founder-signature {
+            margin-top: 3rem;
+            text-align: right;
+        }
+        
+        .founder-name {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: white;
+            margin: 0;
+        }
+        
+        .founder-image {
+            position: relative;
+        }
+        
+        .founder-image img {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            border-radius: 12px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+        
+        /* Client & Liver Section - 321.inc Style */
+        .client-liver-section {
+            background: #f8f9fa;
+            padding: 100px 0;
+        }
+        
+        .client-liver-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .client-liver-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+        }
+        
+        .client-section,
+        .liver-section {
+            padding: 3rem;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+        }
+        
+        .section-label {
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: #5DADE2;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+        
+        .section-title-large {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--text-color);
+            margin: 0 0 1.5rem 0;
+            line-height: 1.3;
+        }
+        
+        .section-description {
+            font-size: 1rem;
+            color: var(--text-light);
+            line-height: 1.7;
+            margin-bottom: 2rem;
+        }
+        
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 1rem 2rem;
+            background: #2C3E50;
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .cta-button:hover {
+            background: #34495E;
+            transform: translateY(-2px);
+            color: white;
+        }
+        
+        .cta-button i {
+            font-size: 0.875rem;
+        }
+        
+        /* Footer - 321.inc Style */
+        .footer-321 {
+            background: #2C3E50;
+            color: white;
+            padding: 4rem 0 2rem 0;
+        }
+        
+        .footer-container-321 {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .footer-top {
+            margin-bottom: 3rem;
+        }
+        
+        .footer-logo-section {
+            margin-bottom: 3rem;
+        }
+        
+        .footer-logo {
+            font-size: 2rem;
+            font-weight: 900;
+            color: white;
+            margin-bottom: 1rem;
+        }
+        
+        .footer-links-grid {
+            display: grid;
+            grid-template-columns: repeat(8, 1fr);
+            gap: 2rem;
+        }
+        
+        .footer-column h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: white;
+            margin-bottom: 1rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding-bottom: 0.5rem;
+        }
+        
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            font-size: 0.875rem;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: #5DADE2;
+        }
+        
+        /* Platform Cards Section */
+        .platform-cards-section {
+            padding: 4rem 0 2rem;
+            background: white;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-left: 2rem;
+            padding-right: 2rem;
+        }
+        
+        .platform-cards-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+        
+        .platform-card {
+            border-radius: 16px;
+            padding: 2rem 1.5rem;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .platform-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .card-purple {
+            background: linear-gradient(135deg, #8B5CF6, #A78BFA);
+        }
+        
+        .card-pink {
+            background: linear-gradient(135deg, #EC4899, #F472B6);
+        }
+        
+        .card-gradient {
+            background: linear-gradient(135deg, #3B82F6, #8B5CF6);
+        }
+        
+        .card-content {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            color: white;
+        }
+        
+        .card-character {
+            width: 60px;
+            height: 60px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1rem;
+            font-size: 1.5rem;
+        }
+        
+        .card-text h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 0.25rem;
+        }
+        
+        .card-text p {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+        
+        .card-cta {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        .card-cta:hover {
+            background: rgba(255, 255, 255, 0.3);
+            color: white;
+            transform: translateY(-2px);
+        }
+        
+        /* Features 321.inc Style Section */
+        .features-321-section {
+            padding: 4rem 2rem;
+            background: white;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .features-header {
+            margin-bottom: 3rem;
+        }
+        
+        .features-label {
+            font-size: 1rem;
+            color: var(--text-muted);
+            margin-bottom: 0.5rem;
+            font-weight: 400;
+        }
+        
+        .features-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--text-color);
+            margin: 0;
+        }
+        
+        .feature-321-item {
+            border: 3px solid #20B2AA;
+            border-radius: 16px;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        .feature-321-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 32px rgba(32, 178, 170, 0.2);
+        }
+        
+        .feature-321-content {
+            display: flex;
+            align-items: center;
+            flex: 1;
+        }
+        
+        .feature-321-icon {
+            width: 80px;
+            height: 80px;
+            background: #20B2AA;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2rem;
+            margin-right: 2rem;
+            flex-shrink: 0;
+        }
+        
+        .feature-321-text h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-color);
+            margin-bottom: 0.5rem;
+        }
+        
+        .feature-321-text p {
+            font-size: 1rem;
+            color: var(--text-light);
+            line-height: 1.6;
+            margin: 0;
+        }
+        
+        .feature-321-cta {
+            background: #333;
+            color: white;
+            padding: 1rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            line-height: 1.3;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+        
+        .feature-321-cta:hover {
+            background: #555;
+            color: white;
+            transform: translateY(-2px);
+        }
+        
+        .feature-321-cta i {
+            margin-left: 0.5rem;
+            font-size: 0.8rem;
+        }
+        
+        .about-content {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+            display: none;
+        }
+        
+        .section-title {
+            color: var(--primary-color);
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        
+        .section-subtitle {
+            font-size: 1.125rem;
+            color: var(--text-light);
+            margin-bottom: 3rem;
+        }
+        
+        /* Features Grid - 高還元率等の特徴 */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            margin-top: 4rem;
+        }
+        
+        .feature-item {
+            text-align: center;
+            padding: 2rem;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease;
+        }
+        
+        .feature-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--gradient-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 2rem;
+            color: white;
+        }
+        
+        /* Data Section - 数字で見るOICOT */
+        .data-section {
+            background: var(--primary-color);
+            color: white;
+        }
+        
+        .data-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 3rem;
+            text-align: center;
+        }
+        
+        .data-item h3 {
+            font-size: 3rem;
+            font-weight: 900;
+            margin-bottom: 0.5rem;
+        }
+        
+        .data-item p {
+            font-size: 1.125rem;
+            opacity: 0.9;
+        }
+        
+        /* Voices Section - 所属ライバーの声 */
+        .voices-section {
+            background: var(--background-light);
+        }
+        
+        .voices-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .voice-card {
+            background: white;
+            border-radius: 16px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease;
+        }
+        
+        .voice-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .voice-avatar {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto 1.5rem;
+            border: 4px solid var(--primary-color);
+        }
+        
+        .voice-name {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--primary-color);
+        }
+        
+        .voice-role {
+            color: var(--text-light);
+            margin-bottom: 1rem;
+        }
+        
+        .voice-comment {
+            font-style: italic;
+            line-height: 1.6;
+        }
+        
+        /* Ranking Section */
+        .ranking-section {
+            background: white;
+        }
+        
+        .ranking-tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 3rem;
+            gap: 1rem;
+        }
+        
+        .ranking-tab {
+            padding: 0.75rem 2rem;
+            background: var(--background-light);
+            border: none;
+            border-radius: 30px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .ranking-tab.active {
+            background: var(--gradient-primary);
+            color: white;
+        }
+        
+        .ranking-list {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .ranking-item {
+            display: flex;
+            align-items: center;
+            padding: 1.5rem;
+            background: var(--background-light);
+            border-radius: 12px;
+            margin-bottom: 1rem;
+            transition: transform 0.3s ease;
+        }
+        
+        .ranking-item:hover {
+            transform: translateX(5px);
+        }
+        
+        .ranking-number {
+            font-size: 2rem;
+            font-weight: 900;
+            color: var(--primary-color);
+            width: 60px;
+        }
+        
+        .ranking-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 1rem;
+        }
+        
+        .ranking-info h4 {
+            margin-bottom: 0.25rem;
+        }
+        
+        .ranking-stats {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+        
+        /* FAQ Section */
+        .faq-section {
+            background: var(--background-light);
+        }
+        
+        .faq-list {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .faq-item {
+            background: white;
+            border-radius: 12px;
+            margin-bottom: 1rem;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+        
+        .faq-question {
+            width: 100%;
+            padding: 1.5rem;
+            background: none;
+            border: none;
+            text-align: left;
+            font-weight: 600;
+            font-size: 1.125rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            transition: background-color 0.3s ease;
+        }
+        
+        .faq-question:hover {
+            background: var(--background-light);
+        }
+        
+        .faq-icon {
+            transition: transform 0.3s ease;
+        }
+        
+        .faq-item.active .faq-icon {
+            transform: rotate(180deg);
+        }
+        
+        .faq-answer {
+            padding: 0 1.5rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .faq-item.active .faq-answer {
+            max-height: 200px;
+            padding: 1.5rem;
+        }
+        
+        /* Message Section - ファウンダーメッセージ */
+        .message-section {
+            background: white;
+        }
+        
+        .message-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 4rem;
+            align-items: center;
+        }
+        
+        .message-image {
+            border-radius: 16px;
+            overflow: hidden;
+        }
+        
+        .message-image img {
+            width: 100%;
+            height: auto;
+        }
+        
+        .message-text {
+            font-size: 1.125rem;
+            line-height: 1.8;
+        }
+        
+        .message-signature {
+            margin-top: 2rem;
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+        
+        /* How To (Registration) Page */
+        .howto-section {
+            background: var(--background-light);
+        }
+        
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .step-item {
+            background: white;
+            border-radius: 16px;
+            padding: 2rem;
+            text-align: center;
+            position: relative;
+        }
+        
+        .step-number {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40px;
+            height: 40px;
+            background: var(--gradient-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+        }
+        
+        /* Footer */
+        .footer {
+            background: #222;
+            color: white;
+            padding: 3rem 0 1rem;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-section h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+        
+        .footer-section a {
+            color: #ccc;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.5rem;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-section a:hover {
+            color: var(--primary-color);
+        }
+        
+        .footer-bottom {
+            border-top: 1px solid #444;
+            padding-top: 2rem;
+            text-align: center;
+            color: #999;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            background: var(--gradient-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            transition: transform 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            transform: scale(1.1);
+        }
+        
+        /* Responsive Design - ブレークポイント: 1280/1024/768/480 */
+        @media (max-width: 1280px) {
+            .container {
+                max-width: 1024px;
+            }
+            
+            .hero-title {
+                font-size: 3.5rem;
+            }
+            
+            .marquee-container {
+                width: 35%;
+            }
+            
+            .hero-content {
+                max-width: 65%;
+            }
+        }
+        
+        @media (max-width: 1024px) {
+            .container {
+                max-width: 768px;
+            }
+            
+            .hero-title {
+                font-size: 3rem;
+            }
+            
+            .message-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            
+            .marquee-container {
+                width: 45%;
+            }
+            
+            .hero-content {
+                max-width: 55%;
+            }
+            
+            .about-layout {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+                text-align: center;
+            }
+            
+            .about-left {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+                justify-items: center;
+            }
+            
+            .about-right {
+                padding-left: 0;
+                gap: 2rem;
+            }
+            
+            .about-right-image {
+                width: 350px;
+                height: 420px;
+                align-self: center;
+            }
+            
+            .about-title {
+                font-size: 2rem;
+            }
+            
+            .interview-header {
+                flex-direction: column;
+                text-align: center;
+                gap: 1rem;
+                margin-bottom: 3rem;
+            }
+            
+            .interview-number {
+                font-size: 4rem;
+            }
+            
+            .interview-title {
+                font-size: 2rem;
+            }
+            
+            .interview-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .view-more-section {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+            
+            .benefit-header {
+                flex-direction: column;
+                text-align: center;
+                gap: 1rem;
+                margin-bottom: 3rem;
+            }
+            
+            .benefit-number {
+                font-size: 4rem;
+            }
+            
+            .benefit-title {
+                font-size: 1.75rem;
+            }
+            
+            .benefit-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .benefit-view-more-section {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+            
+            .events-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            .events-view-more {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+            
+            .data-header {
+                flex-direction: column;
+                text-align: center;
+                gap: 1rem;
+            }
+            
+            .data-number {
+                font-size: 4rem;
+            }
+            
+            .data-title {
+                font-size: 2rem;
+            }
+            
+            .main-number {
+                font-size: 4rem;
+            }
+            
+            .demographics-section {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .table-header,
+            .table-row {
+                grid-template-columns: 1fr;
+            }
+            
+            .table-cell {
+                border-right: none;
+                border-bottom: 1px solid #e0e0e0;
+                justify-content: flex-start;
+            }
+            
+            .oicot-header {
+                justify-content: flex-start;
+            }
+            
+            .voices-header {
+                flex-direction: column;
+                text-align: center;
+                gap: 1rem;
+            }
+            
+            .voices-number {
+                font-size: 4rem;
+            }
+            
+            .voices-title {
+                font-size: 2rem;
+            }
+            
+            .voices-grid-321 {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            .new-liver-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.5rem;
+            }
+            
+            .current-liver-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.5rem;
+            }
+            
+            .ranking-grid-321 {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.5rem;
+            }
+            
+            .new-liver-title,
+            .current-liver-title,
+            .ranking-title-321 {
+                font-size: 2rem;
+            }
+            
+            .faq-header-321 {
+                flex-direction: column;
+                text-align: center;
+                gap: 1rem;
+            }
+            
+            .faq-number {
+                font-size: 4rem;
+            }
+            
+            .faq-title-321 {
+                font-size: 2rem;
+            }
+            
+            .faq-question-321 {
+                padding: 1rem 1.5rem;
+                font-size: 1rem;
+            }
+            
+            .faq-answer-321 {
+                padding: 0 1.5rem;
+            }
+            
+            .faq-item-321.active .faq-answer-321 {
+                padding: 1rem 1.5rem;
+            }
+            
+            .founder-header {
+                flex-direction: column;
+                text-align: center;
+                gap: 1rem;
+            }
+            
+            .founder-number {
+                font-size: 4rem;
+            }
+            
+            .founder-title {
+                font-size: 2rem;
+            }
+            
+            .founder-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .founder-image {
+                order: -1;
+            }
+            
+            .founder-image img {
+                height: 300px;
+            }
+            
+            .founder-quote {
+                font-size: 1rem;
+                padding-left: 0.75rem;
+            }
+            
+            .founder-signature {
+                text-align: center;
+                margin-top: 2rem;
+            }
+            
+            .client-liver-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .client-section,
+            .liver-section {
+                padding: 2rem;
+            }
+            
+            .section-title-large {
+                font-size: 1.75rem;
+            }
+            
+            .footer-links-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.5rem;
+            }
+            
+            .footer-column h3 {
+                font-size: 0.875rem;
+            }
+            
+            .about-person-frame {
+                width: 320px;
+                height: 360px;
+            }
+            
+            .about-character {
+                width: 80px;
+                height: 80px;
+                font-size: 1.5rem;
+            }
+            
+            .about-bottom-left-image {
+                width: 300px;
+                height: 360px;
+            }
+            
+            .platform-cards-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            .feature-321-item {
+                flex-direction: column;
+                text-align: center;
+                gap: 2rem;
+                padding: 2rem;
+            }
+            
+            .feature-321-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .feature-321-icon {
+                margin-right: 0;
+                margin-bottom: 1rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 16px;
+            }
+            
+            .nav-menu {
+                position: fixed;
+                top: 0;
+                left: -100%;
+                width: 100%;
+                height: 100vh;
+                background: white;
+                flex-direction: column;
+                justify-content: center;
+                transition: left 0.3s ease;
+            }
+            
+            .nav-menu.active {
+                left: 0;
+            }
+            
+            .hamburger {
+                display: flex;
+            }
+            
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .section {
+                padding: 60px 0;
+            }
+            
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .voices-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .data-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            /* Mobile Marquee Adjustments */
+            .marquee-container {
+                display: none;
+            }
+            
+            .hero-content {
+                max-width: 100%;
+                margin: 0 auto;
+                padding: 0 1rem;
+            }
+            
+            .hero {
+                background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+                background-size: cover;
+                background-position: center;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero-title {
+                font-size: 2rem;
+            }
+            
+            .h2 {
+                font-size: 2rem;
+            }
+            
+            .btn {
+                padding: 0.875rem 2rem;
+                font-size: 1rem;
+            }
+            
+            .data-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* Animation & Interaction */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Advanced Loading Animation */
+        .loading {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #FF6B6B 0%, #4ECDC4 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            transition: all 0.8s ease;
+        }
+        
+        .loading-content {
+            text-align: center;
+            color: white;
+        }
+        
+        .loading-logo {
+            font-size: 3rem;
+            font-weight: 900;
+            margin-bottom: 2rem;
+            opacity: 0;
+            animation: logoFadeIn 1s ease-out 0.5s forwards;
+        }
+        
+        .loading-text {
+            font-size: 1.25rem;
+            font-weight: 300;
+            letter-spacing: 0.2em;
+            opacity: 0;
+            animation: textSlideUp 1s ease-out 1s forwards;
+        }
+        
+        .loading-progress {
+            width: 300px;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 2px;
+            margin: 2rem auto 0;
+            overflow: hidden;
+        }
+        
+        .loading-bar {
+            width: 0%;
+            height: 100%;
+            background: white;
+            border-radius: 2px;
+            animation: progressBar 2.5s ease-out forwards;
+        }
+        
+        .particle {
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            background: white;
+            border-radius: 50%;
+            opacity: 0.7;
+            animation: float 3s infinite ease-in-out;
+        }
+        
+        .particle:nth-child(1) { top: 20%; left: 10%; animation-delay: 0s; }
+        .particle:nth-child(2) { top: 40%; left: 20%; animation-delay: 0.5s; }
+        .particle:nth-child(3) { top: 60%; left: 15%; animation-delay: 1s; }
+        .particle:nth-child(4) { top: 30%; right: 10%; animation-delay: 1.5s; }
+        .particle:nth-child(5) { top: 70%; right: 20%; animation-delay: 2s; }
+        .particle:nth-child(6) { top: 50%; right: 15%; animation-delay: 2.5s; }
+        
+        /* Initial Hero Animation States */
+        .hero-content {
+            opacity: 0;
+            transform: translateY(60px);
+        }
+        
+        .hero-content.animate {
+            opacity: 1;
+            transform: translateY(0);
+            animation: heroEntrance 1.2s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+        }
+        
+        .hero-subtitle {
+            opacity: 0;
+            transform: translateY(30px);
+            animation-delay: 0.2s;
+        }
+        
+        .hero-title {
+            opacity: 0;
+            transform: translateY(40px);
+            animation-delay: 0.4s;
+        }
+        
+        .hero-description {
+            opacity: 0;
+            transform: translateY(30px);
+            animation-delay: 0.6s;
+        }
+        
+        .hero .btn:first-of-type {
+            opacity: 0;
+            transform: translateY(30px) scale(0.9);
+            animation-delay: 0.8s;
+        }
+        
+        .hero .btn-secondary {
+            opacity: 0;
+            transform: translateY(30px) scale(0.9);
+            animation-delay: 1s;
+        }
+        
+        .animate .hero-subtitle,
+        .animate .hero-title,
+        .animate .hero-description,
+        .animate .btn:first-of-type,
+        .animate .btn-secondary {
+            animation: elementFadeInUp 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+        }
+        
+        /* Navigation Animation */
+        .header {
+            transform: translateY(-100%);
+            transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        
+        .header.show {
+            transform: translateY(0);
+        }
+        
+        .nav-menu li {
+            opacity: 0;
+            transform: translateY(-20px);
+        }
+        
+        .header.show .nav-menu li {
+            animation: navItemFadeIn 0.6s ease-out forwards;
+        }
+        
+        .header.show .nav-menu li:nth-child(1) { animation-delay: 0.1s; }
+        .header.show .nav-menu li:nth-child(2) { animation-delay: 0.2s; }
+        .header.show .nav-menu li:nth-child(3) { animation-delay: 0.3s; }
+        .header.show .nav-menu li:nth-child(4) { animation-delay: 0.4s; }
+        .header.show .nav-menu li:nth-child(5) { animation-delay: 0.5s; }
+        .header.show .nav-menu li:nth-child(6) { animation-delay: 0.6s; }
+        .header.show .nav-menu li:nth-child(7) { animation-delay: 0.7s; }
+        
+        /* Keyframe Animations */
+        @keyframes logoFadeIn {
+            0% {
+                opacity: 0;
+                transform: scale(0.8) rotateY(90deg);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1) rotateY(0deg);
+            }
+        }
+        
+        @keyframes textSlideUp {
+            0% {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes progressBar {
+            0% { width: 0%; }
+            100% { width: 100%; }
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            25% { transform: translateY(-20px) rotate(90deg); }
+            50% { transform: translateY(-10px) rotate(180deg); }
+            75% { transform: translateY(-15px) rotate(270deg); }
+        }
+        
+        @keyframes heroEntrance {
+            0% {
+                opacity: 0;
+                transform: translateY(60px) scale(0.95);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+        
+        @keyframes elementFadeInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(30px) scale(0.95);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+        
+        @keyframes navItemFadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes backgroundMove {
+            0% { transform: translate(-25%, -25%) rotate(0deg); }
+            100% { transform: translate(-25%, -25%) rotate(360deg); }
+        }
+        
+        /* Marquee Animations */
+        @keyframes scrollUp {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(-100%); }
+        }
+        
+        @keyframes scrollDown {
+            0% { transform: translateY(-100%); }
+            100% { transform: translateY(0); }
+        }
+        
+        /* Add floating animation for extra dynamism */
+        .marquee-item:nth-child(odd) {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        .marquee-item:nth-child(even) {
+            animation: float 6s ease-in-out infinite reverse;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateX(0) rotate(0deg); }
+            25% { transform: translateX(5px) rotate(1deg); }
+            50% { transform: translateX(0) rotate(0deg); }
+            75% { transform: translateX(-5px) rotate(-1deg); }
+        }
+        
+        /* Advanced Micro-interactions */
+        .feature-icon {
+            transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        
+        .feature-item:hover .feature-icon {
+            transform: scale(1.2) rotateY(180deg);
+            background: linear-gradient(135deg, #4ECDC4 0%, #FF6B6B 100%);
+        }
+        
+        /* Improved Typography Animation for White Background */
+        
+        @keyframes textShimmer {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+        
+        /* Enhanced Card Hover Effects */
+        .voice-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, transparent, rgba(255, 107, 107, 0.1), transparent);
+            border-radius: 16px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .voice-card:hover::before {
+            opacity: 1;
+        }
+        
+        /* Staggered Section Animations */
+        .section {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        
+        .section.animate {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Advanced Hover Effects */
+        .feature-item {
+            transform: translateY(0);
+            transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        
+        .feature-item:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+        
+        .voice-card {
+            transform: translateY(0);
+            transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        
+        .voice-card:hover {
+            transform: translateY(-8px) rotateX(5deg);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+        }
+        
+        /* Button Advanced Animation */
+        .btn {
+            position: relative;
+            transform: translateZ(0);
+            transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        
+        .btn:hover {
+            transform: translateY(-4px) scale(1.05);
+            box-shadow: 0 15px 35px rgba(255, 107, 107, 0.4);
+        }
+        
+        .btn:active {
+            transform: translateY(-2px) scale(1.02);
+            transition: all 0.1s ease;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Advanced Loading Screen -->
+    <div class="loading" id="loading">
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        
+        <div class="loading-content">
+            <div class="loading-logo">OICOT FUKUI</div>
+            <div class="loading-text">"夢"を"現実"に</div>
+            <div class="loading-progress">
+                <div class="loading-bar"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header Navigation -->
+    <header class="header" id="header">
+        <div class="container">
+            <nav class="nav-container">
+                <a href="#home" class="logo">OICOT FUKUI</a>
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#voices">Voices</a></li>
+                    <li><a href="#ranking">Ranking</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#howto" class="cta-nav">ライバー新規登録</a></li>
+                </ul>
+                <div class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero" id="home">
+            <!-- Marquee Animation Container -->
+            <div class="marquee-container">
+                <!-- First Column - Scrolling Up -->
+                <div class="marquee-column">
+                    <div class="marquee-content">
+                        <div class="marquee-item">
+                            <img src="https://images.unsplash.com/photo-1494790108755-2616b612b589?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&h=300&q=80" alt="ライバー1">
+                        </div>
+                        <div class="marquee-shape shape-1">
+                            TOP LIVER
+                        </div>
+                        <div class="marquee-item">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&h=300&q=80" alt="ライバー2">
+                        </div>
+                        <div class="marquee-shape shape-2">
+                            EXPERT
+                        </div>
+                        <div class="marquee-item">
+                            <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&h=300&q=80" alt="ライバー3">
+                        </div>
+                        <div class="marquee-shape shape-3">
+                            RISING STAR
+                        </div>
+                        <div class="marquee-item">
+                            <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&h=300&q=80" alt="ライバー4">
+                        </div>
+                        <div class="marquee-shape shape-4">
+                            NEW FACE
+                        </div>
+                        <!-- Duplicate for seamless loop -->
+                        <div class="marquee-item">
+                            <img src="https://images.unsplash.com/photo-1494790108755-2616b612b589?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&h=300&q=80" alt="ライバー1">
+                        </div>
+                        <div class="marquee-shape shape-1">
+                            TOP LIVER
+                        </div>
+                        <div class="marquee-item">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&h=300&q=80" alt="ライバー2">
+                        </div>
+                        <div class="marquee-shape shape-2">
+                            EXPERT
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Second Column - Scrolling Down -->
+                <div class="marquee-column">
+                    <div class="marquee-content">
+                        <div class="marquee-shape shape-5">
+                            PREMIUM
+                        </div>
+                        <div class="marquee-item">
+                            <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&h=300&q=80" alt="ライバー5">
+                        </div>
+                        <div class="marquee-shape shape-6">
+                            STANDARD
+                        </div>
+                        <div class="marquee-item">
+                            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&h=300&q=80" alt="ライバー6">
+                        </div>
+                        <div class="marquee-shape shape-1">
+                            TALENT
+                        </div>
+                        <div class="marquee-item">
+                            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&h=300&q=80" alt="ライバー7">
+                        </div>
+                        <div class="marquee-shape shape-3">
+                            CREATOR
+                        </div>
+                        <div class="marquee-item">
+                            <img src="https://images.unsplash.com/photo-1489424731084-a5d8b219a5bb?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&h=300&q=80" alt="ライバー8">
+                        </div>
+                        <!-- Duplicate for seamless loop -->
+                        <div class="marquee-shape shape-5">
+                            PREMIUM
+                        </div>
+                        <div class="marquee-item">
+                            <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&h=300&q=80" alt="ライバー5">
+                        </div>
+                        <div class="marquee-shape shape-6">
+                            STANDARD
+                        </div>
+                        <div class="marquee-item">
+                            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&h=300&q=80" alt="ライバー6">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="hero-content fade-in">
+                <p class="hero-subtitle">地方エンタメの新しいカタチ</p>
+                <h1 class="hero-title">"夢"を"現実"に<br>配信で生きていく</h1>
+                <p class="hero-description">OICOT FUKUIは、福井発の地方エンタメ事務所です。<br>上京しなくても、夢は叶う。</p>
+                <a href="#howto" class="btn">ライバー新規登録についてはこちら</a>
+                <a href="#about" class="btn btn-secondary">詳しく見る</a>
+            </div>
+        </section>
+
+        <!-- About OICOT Section - 321.inc Style -->
+        <section class="about-section" id="about">
+            <div class="about-layout fade-in">
+                <!-- Left Side: Character + Single Image -->
+                <div class="about-left">
+                    <div class="about-character">
+                        OICOT
+                    </div>
+                    <div class="about-person-frame">
+                        <div class="about-person-image">
+                            <img src="https://www.fuku-e.com/lsc/api/photo/?src=6746" alt="OICOT FUKUI 代表">
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Right Side: Text Content and Image -->
+                <div class="about-right">
+                    <div class="about-right-content">
+                        <h2 class="about-title">OICOT FUKUIとは、<br>地方No.1のライバー<br>マネジメント事務所です。</h2>
+                        <p class="about-description">私たちは福井を拠点に、地方にいながらエンタメ業界で活躍できる環境を提供します。</p>
+                        
+                        <a href="#howto" class="about-cta">
+                            ライバー新規登録についてはこちら
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                    
+                    <!-- Right Side Image -->
+                    <div class="about-right-image">
+                        <img src="https://page.gensparksite.com/v1/base64_upload/86652d309f28e7d5db6d0b90b7c3e088" alt="OICOT FUKUI 福井の風景">
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Platform Cards Section -->
+            <div class="platform-cards-section">
+                <div class="platform-cards-grid">
+                    <div class="platform-card card-purple">
+                        <div class="card-content">
+                            <div class="card-character">
+                                <i class="fas fa-video"></i>
+                            </div>
+                            <div class="card-text">
+                                <h3>OICOT LIVER</h3>
+                                <p>配信専門プラットフォーム</p>
+                            </div>
+                        </div>
+                        <a href="#" class="card-cta">公式サイトはコチラ</a>
+                    </div>
+                    
+                    <div class="platform-card card-pink">
+                        <div class="card-content">
+                            <div class="card-character">
+                                <i class="fas fa-heart"></i>
+                            </div>
+                            <div class="card-text">
+                                <h3>OICOT タレント</h3>
+                                <p>総合エンタメ事業</p>
+                            </div>
+                        </div>
+                        <a href="#" class="card-cta">公式サイトはコチラ</a>
+                    </div>
+                    
+                    <div class="platform-card card-gradient">
+                        <div class="card-content">
+                            <div class="card-character">
+                                <i class="fab fa-tiktok"></i>
+                            </div>
+                            <div class="card-text">
+                                <h3>OICOT TikTok</h3>
+                                <p>TikTok専門チャンネル</p>
+                            </div>
+                        </div>
+                        <a href="#" class="card-cta">公式サイトはコチラ</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Features Section - 321.inc Style -->
+            <div class="features-321-section">
+                <div class="features-header">
+                    <p class="features-label">Features</p>
+                    <h2 class="features-title">OICOTの特徴</h2>
+                </div>
+                
+                <div class="feature-321-item">
+                    <div class="feature-321-content">
+                        <div class="feature-321-icon">
+                            <i class="fas fa-handshake"></i>
+                        </div>
+                        <div class="feature-321-text">
+                            <h3>マネージャー制</h3>
+                            <p>ライバー1人1人にマネージャーがつき、サポートをさせていただきます。</p>
+                        </div>
+                    </div>
+                    <a href="#howto" class="feature-321-cta">
+                        ライバー新規登録に<br>ついてはこちら
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+                
+                <div class="feature-321-item">
+                    <div class="feature-321-content">
+                        <div class="feature-321-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <div class="feature-321-text">
+                            <h3>業界最高水準の還元率</h3>
+                            <p>他社を圧倒する還元率85%で、ライバーの収益を最大化いたします。</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="feature-321-item">
+                    <div class="feature-321-content">
+                        <div class="feature-321-icon">
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <div class="feature-321-text">
+                            <h3>オリジナルイベント多数</h3>
+                            <p>定期的なオリジナルイベントで露出機会を創出し、活躍の場を提供します。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Manager Interview Section - 321.inc Style -->
+        <section class="interview-section">
+            <div class="interview-container">
+                <div class="interview-header">
+                    <div class="interview-number">321</div>
+                    <div class="interview-title-wrapper">
+                        <p class="interview-label">Manager Interview</p>
+                        <h2 class="interview-title">マネージャーインタビュー</h2>
+                    </div>
+                </div>
+                
+                <div class="interview-grid">
+                    <!-- Left Interview Card -->
+                    <div class="interview-card">
+                        <div class="interview-image">
+                            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&h=400&q=80" alt="マネージャー山田">
+                        </div>
+                        <div class="interview-content">
+                            <div class="interview-text">
+                                <p>この人と出会えて<br>本当によかったと<br>思ってもらえるような<br>関係性に</p>
+                                <div class="interviewer-info">
+                                    <p class="role">Manager</p>
+                                    <p class="name">山田 ありさ</p>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="interview-summary">この人と出会えてよかったと思ってもらえるような関係になりたい、マネージャー歴ありがとうございインタビュー</p>
+                    </div>
+                    
+                    <!-- Right Interview Card -->
+                    <div class="interview-card">
+                        <div class="interview-image">
+                            <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&h=400&q=80" alt="マネージャー佐藤">
+                        </div>
+                        <div class="interview-content">
+                            <div class="interview-text">
+                                <p>ライバーには<br>"家族"や"お姉ちゃん"と<br>思ってもらいたい</p>
+                                <div class="interviewer-info">
+                                    <p class="role">Manager</p>
+                                    <p class="name">佐藤 恵美子</p>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="interview-summary">ライバーには"家族"や"お姉ちゃん"と思ってもらいたいマネージャー佐藤恵美子へのインタビュー</p>
+                    </div>
+                </div>
+                
+                <div class="view-more-section">
+                    <button class="view-more-btn">
+                        View more <i class="fas fa-arrow-right"></i>
+                    </button>
+                    <a href="#howto" class="registration-cta">
+                        ライバー新規登録に<br>ついてはこちら
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Benefit Section - 321.inc Style -->
+        <section class="benefit-section">
+            <div class="benefit-container">
+                <div class="benefit-header">
+                    <div class="benefit-number">321</div>
+                    <div class="benefit-title-wrapper">
+                        <p class="benefit-label">Benefit</p>
+                        <h2 class="benefit-title">様々なOICOTライバー特典やオリジナルイベント</h2>
+                    </div>
+                </div>
+                
+                <div class="benefit-grid">
+                    <!-- Left Event Card -->
+                    <div class="benefit-card">
+                        <div class="benefit-image">
+                            <img src="https://page.gensparksite.com/v1/base64_upload/c0324930eb606abb3225d289573bca3e" alt="OICOT 夏祭り">
+                        </div>
+                        <div class="benefit-label-bottom">OICOT 夏祭り</div>
+                    </div>
+                    
+                    <!-- Right Award Card -->
+                    <div class="benefit-card">
+                        <div class="benefit-image award-image">
+                            <img src="https://images.unsplash.com/photo-1551698618-1dfe5d97d256?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&h=400&q=80" alt="OICOT AWARD">
+                            <div class="award-overlay">
+                                <div class="award-text">
+                                    <h3>OICOT AWARD</h3>
+                                    <p>2024.12.31 (FRI)</p>
+                                </div>
+                                <div class="award-trophy">🏆</div>
+                            </div>
+                        </div>
+                        <div class="benefit-label-bottom">OICOT AWARD</div>
+                    </div>
+                </div>
+                
+                <div class="benefit-view-more-section">
+                    <button class="view-more-btn">
+                        View more <i class="fas fa-arrow-right"></i>
+                    </button>
+                    <a href="#howto" class="registration-cta">
+                        ライバー新規登録に<br>ついてはこちら
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+                
+                <div class="benefit-event-section">
+                    <div class="event-header">
+                        <p class="event-label">Event</p>
+                        <h3 class="event-title">最新イベント</h3>
+                    </div>
+                    
+                    <div class="events-grid">
+                        <!-- Left Event -->
+                        <div class="event-card">
+                            <div class="event-image">
+                                <img src="https://page.gensparksite.com/v1/base64_upload/a5fed616f06b1162e326306e3327b51c" alt="ギルドカップ記念 321推し活！キャンペーン">
+                            </div>
+                            <div class="event-info">
+                                <p class="event-date">2025.09.03</p>
+                                <h4 class="event-name">ギルドカップ記念「321推し活！」プレゼントキャンペーン</h4>
+                            </div>
+                        </div>
+                        
+                        <!-- Right Event -->
+                        <div class="event-card">
+                            <div class="event-image">
+                                <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&h=300&q=80" alt="9月Pococha C3-B1ランクライバー限定 スター発掘week">
+                            </div>
+                            <div class="event-info">
+                                <p class="event-date">2025.08.27</p>
+                                <h4 class="event-name">【9月】Pococha C3-B1ランクライバー限定 スター発掘week</h4>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="events-view-more">
+                        <button class="view-more-btn">
+                            View more <i class="fas fa-arrow-right"></i>
+                        </button>
+                        <a href="#howto" class="registration-cta">
+                            ライバー新規登録に<br>ついてはこちら
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Data Section - 321.inc Style -->
+        <section class="data-section-321">
+            <div class="data-container">
+                <div class="data-header">
+                    <div class="data-number">321</div>
+                    <div class="data-title-wrapper">
+                        <p class="data-label">Data</p>
+                        <h2 class="data-title">数字で見るOICOT</h2>
+                    </div>
+                    <div class="data-character">
+                        <img src="https://page.gensparksite.com/v1/base64_upload/2d97bfab5d11a51934cea967a1126f9d" alt="OICOTキャラクター">
+                    </div>
+                </div>
+                
+                <!-- 所属人数セクション -->
+                <div class="data-main-stat">
+                    <h3 class="stat-title">所属人数</h3>
+                    <div class="big-number">
+                        <span class="number-prefix">約</span>
+                        <span class="main-number">10,000</span>
+                        <span class="number-suffix">名</span>
+                    </div>
+                    <div class="people-icons">
+                        <div class="people-row">
+                            <i class="fas fa-user people-icon"></i>
+                            <i class="fas fa-user people-icon"></i>
+                            <i class="fas fa-user people-icon"></i>
+                            <i class="fas fa-user people-icon"></i>
+                            <i class="fas fa-user people-icon"></i>
+                            <i class="fas fa-user people-icon"></i>
+                            <i class="fas fa-user people-icon"></i>
+                            <i class="fas fa-user people-icon"></i>
+                        </div>
+                        <div class="people-row">
+                            <i class="fas fa-user people-icon"></i>
+                            <i class="fas fa-user people-icon"></i>
+                            <i class="fas fa-user people-icon"></i>
+                            <i class="fas fa-user people-icon"></i>
+                            <i class="fas fa-user people-icon"></i>
+                            <i class="fas fa-user people-icon"></i>
+                            <i class="fas fa-user people-icon"></i>
+                            <i class="fas fa-user people-icon"></i>
+                        </div>
+                    </div>
+                    <p class="data-note">※2024年4月現在</p>
+                </div>
+                
+                <!-- 男女比と年齢比 -->
+                <div class="demographics-section">
+                    <div class="demo-item">
+                        <h4 class="demo-title">男女比</h4>
+                        <div class="gender-stats">
+                            <div class="gender-bar">
+                                <div class="gender-label">女性</div>
+                                <div class="bar-container">
+                                    <div class="bar female-bar" style="width: 71%;">71%</div>
+                                </div>
+                            </div>
+                            <div class="gender-bar">
+                                <div class="gender-label">男性</div>
+                                <div class="bar-container">
+                                    <div class="bar male-bar" style="width: 29%;">29%</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="demo-comment">
+                            <img src="https://page.gensparksite.com/v1/base64_upload/a405f333d5b8dc4220e41a3db809ece5" alt="男性ライバー">
+                            <p>男性も頑張ってるので<br>注目してね〜！</p>
+                        </div>
+                    </div>
+                    
+                    <div class="demo-item">
+                        <h4 class="demo-title">年齢比</h4>
+                        <div class="age-stats">
+                            <div class="age-item">
+                                <span class="age-range">20代</span>
+                                <span class="age-percent main-age">64%</span>
+                            </div>
+                            <div class="age-item">
+                                <span class="age-range">30代</span>
+                                <span class="age-percent">24%</span>
+                            </div>
+                            <div class="age-item">
+                                <span class="age-range">10代</span>
+                                <span class="age-percent">4%</span>
+                            </div>
+                            <div class="age-item">
+                                <span class="age-range">40代</span>
+                                <span class="age-percent">5%</span>
+                            </div>
+                            <div class="age-item">
+                                <span class="age-range">50代〜</span>
+                                <span class="age-percent">3%</span>
+                            </div>
+                        </div>
+                        <div class="demo-comment">
+                            <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&h=100&q=80" alt="女性ライバー">
+                            <p>30代で子育て中の方、<br>主婦の方もたくさんいるよ！</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 他社比較表 -->
+                <div class="comparison-section">
+                    <h4 class="comparison-title">他社比較</h4>
+                    <div class="comparison-table">
+                        <div class="table-header">
+                            <div class="table-cell"></div>
+                            <div class="table-cell oicot-header">OICOT</div>
+                            <div class="table-cell">A社</div>
+                            <div class="table-cell">B社</div>
+                            <div class="table-cell">C社</div>
+                        </div>
+                        <div class="table-row">
+                            <div class="table-cell row-label">還元率</div>
+                            <div class="table-cell oicot-cell">一律100%</div>
+                            <div class="table-cell">最大100%（条件により違う）</div>
+                            <div class="table-cell">最大90%</div>
+                            <div class="table-cell">80%</div>
+                        </div>
+                        <div class="table-row">
+                            <div class="table-cell row-label">ノルマ</div>
+                            <div class="table-cell oicot-cell">なし</div>
+                            <div class="table-cell">なし</div>
+                            <div class="table-cell">あり</div>
+                            <div class="table-cell">なし</div>
+                        </div>
+                        <div class="table-row">
+                            <div class="table-cell row-label">マネージャー</div>
+                            <div class="table-cell oicot-cell">一人一人にマネージャーがサポート</div>
+                            <div class="table-cell">トップライバーのみサポート</div>
+                            <div class="table-cell">あり</div>
+                            <div class="table-cell">なし</div>
+                        </div>
+                        <div class="table-row">
+                            <div class="table-cell row-label">配信可能アプリ</div>
+                            <div class="table-cell oicot-cell">11</div>
+                            <div class="table-cell">3</div>
+                            <div class="table-cell">10</div>
+                            <div class="table-cell">1</div>
+                        </div>
+                        <div class="table-row">
+                            <div class="table-cell row-label">顔出し不要</div>
+                            <div class="table-cell oicot-cell">あり</div>
+                            <div class="table-cell">あり</div>
+                            <div class="table-cell">なし</div>
+                            <div class="table-cell">なし</div>
+                        </div>
+                        <div class="table-row">
+                            <div class="table-cell row-label">案件紹介</div>
+                            <div class="table-cell oicot-cell">あり</div>
+                            <div class="table-cell">なし</div>
+                            <div class="table-cell">なし</div>
+                            <div class="table-cell">なし</div>
+                        </div>
+                        <div class="table-row">
+                            <div class="table-cell row-label">イベント</div>
+                            <div class="table-cell oicot-cell">年間2億円をかけたイベントを開催</div>
+                            <div class="table-cell">あり</div>
+                            <div class="table-cell">あり</div>
+                            <div class="table-cell">なし</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Liver Voices Section - 321.inc Style -->
+        <section class="liver-voices-section">
+            <div class="liver-voices-container">
+                <div class="voices-header">
+                    <div class="voices-number">321</div>
+                    <div class="voices-title-wrapper">
+                        <p class="voices-label">Voices</p>
+                        <h2 class="voices-title">所属ライバーの声</h2>
+                        <p class="voices-subtitle">実際に活躍中のライバーからのメッセージをご紹介</p>
+                    </div>
+                </div>
+                
+                <div class="voices-grid-321">
+                    <div class="voice-card-321">
+                        <img src="https://images.unsplash.com/photo-1494790108755-2616b612b589?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&h=200&q=80" alt="もりゆか" class="voice-avatar-321">
+                        <h4 class="voice-name-321">もりゆか</h4>
+                        <p class="voice-role-321">トップライバー</p>
+                        <p class="voice-comment-321">"地方にいながらこんなに活躍できるとは思いませんでした。マネージャーさんのサポートが本当に手厚くて、安心して配信に集中できます。"</p>
+                    </div>
+                    <div class="voice-card-321">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&h=200&q=80" alt="たけし" class="voice-avatar-321">
+                        <h4 class="voice-name-321">たけし</h4>
+                        <p class="voice-role-321">エキスパートライバー</p>
+                        <p class="voice-comment-321">"還元率の高さが決め手でした。おかげで本業として配信を続けることができ、夢だった生活が実現しています。"</p>
+                    </div>
+                    <div class="voice-card-321">
+                        <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&h=200&q=80" alt="さくら" class="voice-avatar-321">
+                        <h4 class="voice-name-321">さくら</h4>
+                        <p class="voice-role-321">新人ライバー</p>
+                        <p class="voice-comment-321">"初心者の私にも丁寧に教えてくれて、1ヶ月でここまで成長できました。イベントも楽しくて毎日が充実しています！"</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- New Liver Section - 321.inc Style -->
+        <section class="new-liver-section">
+            <div class="new-liver-container">
+                <div class="new-liver-header">
+                    <p class="new-liver-label">New Liver</p>
+                    <h2 class="new-liver-title">新人ライバー</h2>
+                    <p class="new-liver-subtitle">新人ライバーの中でも特に活躍している方をご紹介</p>
+                </div>
+                
+                <div class="new-liver-grid">
+                    <div class="new-liver-card">
+                        <div class="new-badge">NEW</div>
+                        <img src="https://page.gensparksite.com/v1/base64_upload/1a751f96b94d15f63fbdb1e6e22090ec" alt="ゆきたむ">
+                        <h4 class="new-liver-name">ゆきたむ</h4>
+                        <p class="new-liver-room">配信ルームを見る ↗</p>
+                    </div>
+                    <div class="new-liver-card">
+                        <div class="new-badge">NEW</div>
+                        <img src="https://page.gensparksite.com/v1/base64_upload/833cf8126c1e0db2167e1bb1cea84146" alt="かわちまる">
+                        <h4 class="new-liver-name">かわちまる</h4>
+                        <p class="new-liver-room">配信ルームを見る ↗</p>
+                    </div>
+                    <div class="new-liver-card">
+                        <div class="new-badge">NEW</div>
+                        <img src="https://page.gensparksite.com/v1/base64_upload/5406dbffd186ba76271ecf379d52d112" alt="こほ">
+                        <h4 class="new-liver-name">こほ</h4>
+                        <p class="new-liver-room">配信ルームを見る ↗</p>
+                    </div>
+                    <div class="new-liver-card">
+                        <div class="new-badge">NEW</div>
+                        <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&h=200&q=80" alt="ななみ">
+                        <h4 class="new-liver-name">ななみ</h4>
+                        <p class="new-liver-room">配信ルームを見る ↗</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Current Liver Section - 321.inc Style -->
+        <section class="current-liver-section">
+            <div class="current-liver-container">
+                <div class="current-liver-header">
+                    <p class="current-liver-label">Liver</p>
+                    <h2 class="current-liver-title">所属ライバー</h2>
+                </div>
+                
+                <div class="current-liver-grid">
+                    <div class="current-liver-card yellow-border">
+                        <img src="https://images.unsplash.com/photo-1494790108755-2616b612b589?ixlib=rb-4.0.3&auto=format&fit=crop&w=250&h=300&q=80" alt="なりちゃん">
+                        <h4 class="current-liver-name">なりちゃん</h4>
+                    </div>
+                    <div class="current-liver-card pink-border">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=250&h=300&q=80" alt="負けないyuuu">
+                        <h4 class="current-liver-name">負けないyuuu</h4>
+                    </div>
+                    <div class="current-liver-card blue-border">
+                        <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&auto=format&fit=crop&w=250&h=300&q=80" alt="斉藤優里">
+                        <h4 class="current-liver-name">斉藤優里</h4>
+                    </div>
+                    <div class="current-liver-card green-border">
+                        <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=250&h=300&q=80" alt="日向美桜">
+                        <h4 class="current-liver-name">日向美桜</h4>
+                    </div>
+                </div>
+                
+                <div class="view-more-center">
+                    <button class="view-more-btn">View more</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Liver Ranking Section - 321.inc Style -->
+        <section class="liver-ranking-section">
+            <div class="liver-ranking-container">
+                <div class="ranking-header-321">
+                    <p class="ranking-label-321">Ranking</p>
+                    <h2 class="ranking-title-321">ライバーランキング</h2>
+                    <p class="ranking-subtitle-321">今月のトップライバーをご紹介</p>
+                    <p class="ranking-note-321">※ ギフト額の合計から算出しています</p>
+                </div>
+                
+                <div class="ranking-tabs-321">
+                    <button class="ranking-tab-321 active">Expert Liver</button>
+                    <button class="ranking-tab-321">Standard Liver</button>
+                </div>
+                
+                <div class="ranking-grid-321">
+                    <div class="ranking-item-321 rank-1">
+                        <div class="rank-number gold">No.1</div>
+                        <img src="https://images.unsplash.com/photo-1494790108755-2616b612b589?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&h=180&q=80" alt="ひあの">
+                        <h4 class="ranking-name-321">ひあの</h4>
+                        <p class="ranking-room-321">配信ルームを見る ↗</p>
+                    </div>
+                    <div class="ranking-item-321 rank-2">
+                        <div class="rank-number silver">No.2</div>
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&h=180&q=80" alt="ガガちゃん">
+                        <h4 class="ranking-name-321">ガガちゃん</h4>
+                        <p class="ranking-room-321">配信ルームを見る ↗</p>
+                    </div>
+                    <div class="ranking-item-321 rank-3">
+                        <div class="rank-number bronze">No.3</div>
+                        <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&h=180&q=80" alt="まさみ">
+                        <h4 class="ranking-name-321">まさみ</h4>
+                        <p class="ranking-room-321">配信ルームを見る ↗</p>
+                    </div>
+                    <div class="ranking-item-321 rank-4">
+                        <div class="rank-number">No.4</div>
+                        <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&h=180&q=80" alt="おおめ">
+                        <h4 class="ranking-name-321">おおめ</h4>
+                        <p class="ranking-room-321">配信ルームを見る ↗</p>
+                    </div>
+                    <div class="ranking-item-321 rank-5">
+                        <div class="rank-number">No.5</div>
+                        <img src="https://images.unsplash.com/photo-1489424731084-a5d8b219a5bb?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&h=180&q=80" alt="ライバー5">
+                        <h4 class="ranking-name-321">みか</h4>
+                        <p class="ranking-room-321">配信ルームを見る ↗</p>
+                    </div>
+                    <div class="ranking-item-321 rank-6">
+                        <div class="rank-number">No.6</div>
+                        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&h=180&q=80" alt="ライバー6">
+                        <h4 class="ranking-name-321">れい</h4>
+                        <p class="ranking-room-321">配信ルームを見る ↗</p>
+                    </div>
+                    <div class="ranking-item-321 rank-7">
+                        <div class="rank-number">No.7</div>
+                        <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&h=180&q=80" alt="ライバー7">
+                        <h4 class="ranking-name-321">あかり</h4>
+                        <p class="ranking-room-321">配信ルームを見る ↗</p>
+                    </div>
+                    <div class="ranking-item-321 rank-8">
+                        <div class="rank-number">No.8</div>
+                        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&h=180&q=80" alt="ライバー8">
+                        <h4 class="ranking-name-321">ゆめ</h4>
+                        <p class="ranking-room-321">配信ルームを見る ↗</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section - 321.inc Style -->
+        <section class="faq-section-321">
+            <div class="faq-container-321">
+                <div class="faq-header-321">
+                    <div class="faq-number">321</div>
+                    <div class="faq-title-wrapper">
+                        <p class="faq-label-321">FAQ</p>
+                        <h2 class="faq-title-321">よくある質問</h2>
+                    </div>
+                </div>
+                
+                <div class="faq-list-321">
+                    <div class="faq-item-321">
+                        <button class="faq-question-321">
+                            <span>ライバーとして活動するのに費用はかかりますか？</span>
+                            <i class="fas fa-chevron-down faq-icon-321"></i>
+                        </button>
+                        <div class="faq-answer-321">
+                            <p>いいえ、ライバーとして活動するのに費用は一切かかりません。登録料や月額費用なども無料です。安心してご活動いただけます。</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item-321">
+                        <button class="faq-question-321">
+                            <span>顔出しは必須ですか？</span>
+                            <i class="fas fa-chevron-down faq-icon-321"></i>
+                        </button>
+                        <div class="faq-answer-321">
+                            <p>顔出しは必須ではありません。ラジオ配信や Vtuber としての活動も可能です。ご自身の希望に合わせて配信スタイルを選択いただけます。</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item-321">
+                        <button class="faq-question-321">
+                            <span>どのような配信アプリで活動できますか？</span>
+                            <i class="fas fa-chevron-down faq-icon-321"></i>
+                        </button>
+                        <div class="faq-answer-321">
+                            <p>Pococha、17LIVE、BIGO LIVE、MixChannel、SHOWROOM、ツイキャス、YouTube Live など11の配信アプリでご活動いただけます。</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item-321">
+                        <button class="faq-question-321">
+                            <span>還元率はどのくらいですか？</span>
+                            <i class="fas fa-chevron-down faq-icon-321"></i>
+                        </button>
+                        <div class="faq-answer-321">
+                            <p>OICOTでは業界最高水準の還元率85%〜100%を実現しています。条件に関係なく一律の還元率でライバーの皆様をサポートします。</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item-321">
+                        <button class="faq-question-321">
+                            <span>マネージャーはどのようなサポートをしてくれますか？</span>
+                            <i class="fas fa-chevron-down faq-icon-321"></i>
+                        </button>
+                        <div class="faq-answer-321">
+                            <p>専属マネージャーが配信の企画相談、技術的なサポート、イベント参加のサポート、収益向上のアドバイスなど、包括的にサポートいたします。</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item-321">
+                        <button class="faq-question-321">
+                            <span>配信ノルマはありますか？</span>
+                            <i class="fas fa-chevron-down faq-icon-321"></i>
+                        </button>
+                        <div class="faq-answer-321">
+                            <p>配信ノルマは一切ありません。ご自身のペースで無理なく活動していただけます。副業としても本業としてもお気軽にご参加ください。</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item-321">
+                        <button class="faq-question-321">
+                            <span>未経験でも大丈夫ですか？</span>
+                            <i class="fas fa-chevron-down faq-icon-321"></i>
+                        </button>
+                        <div class="faq-answer-321">
+                            <p>はい、全く問題ありません。未経験の方にも丁寧に指導いたします。配信のコツや機材の使い方など、基礎から学んでいただけます。</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item-321">
+                        <button class="faq-question-321">
+                            <span>地方在住でも参加できますか？</span>
+                            <i class="fas fa-chevron-down faq-icon-321"></i>
+                        </button>
+                        <div class="faq-answer-321">
+                            <p>もちろんです！OICOTは福井を拠点とする地方エンタメ事務所です。地方にいながら全国で活躍できる環境を提供しています。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Founder Message Section - 321.inc Style -->
+        <section class="founder-message-section">
+            <div class="founder-message-container">
+                <div class="founder-header">
+                    <div class="founder-number">321</div>
+                    <div class="founder-title-wrapper">
+                        <p class="founder-label">Message</p>
+                        <h2 class="founder-title">ファウンダーメッセージ</h2>
+                    </div>
+                </div>
+                
+                <div class="founder-content">
+                    <div class="founder-text">
+                        <p class="founder-quote">"ライバーと呼ばれる、世間一般的にはまだまだ「なにそれ？」と言われる仕事をと思います。YouTuberがテレビに出るなんて言われ始めたなかったようち、1〜2年後には「ライバー」が確実の職業になっている。私はそう確信しています。</p>
+                        
+                        <p class="founder-paragraph">その理由は三つ。</p>
+                        <p class="founder-paragraph">触れ合う機会に制限があること。</p>
+                        <p class="founder-paragraph">きちんとした金を稼げて生活に活かしていけること。</p>
+                        <p class="founder-paragraph">最後に、リアルタイムのコミュニケーション、コアなファンとの繋がりをみたすこと。</p>
+                        
+                        <p class="founder-paragraph">世間に知られているスターライバーはまだいません。ライバー業界を引っ張ってくれる「顔」となるライバーの育成を急いでいます。その時代に求られる子を321から育てていきたいと思っています。「ライバーになりたい」と思った今321!!そう言われる子を躍進させています。</p>
+                        
+                        <p class="founder-paragraph">最後に、所属ライバーの皆さんへ。</p>
+                        <p class="founder-paragraph">これからも321を一緒に大きくしていきましょう！</p>
+                        
+                        <div class="founder-signature">
+                            <p class="founder-name">ゆうこす</p>
+                        </div>
+                    </div>
+                    
+                    <div class="founder-image">
+                        <img src="https://page.gensparksite.com/v1/base64_upload/7344cca6fdccb7f42b7672e9d7e6e331" alt="OICOT FUKUI ファウンダー">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Client & Liver Section - 321.inc Style -->
+        <section class="client-liver-section">
+            <div class="client-liver-container">
+                <div class="client-liver-grid">
+                    <!-- For Client -->
+                    <div class="client-section">
+                        <p class="section-label">For Client</p>
+                        <h2 class="section-title-large">企業の方へ</h2>
+                        <p class="section-description">ライバーを活用した案件のご相談やご依頼をご検討の企業の方はこちらからお気軽にご相談ください。</p>
+                        <a href="#contact" class="cta-button">
+                            Contact
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                    
+                    <!-- For Liver -->
+                    <div class="liver-section">
+                        <p class="section-label">For Liver</p>
+                        <h2 class="section-title-large">所属をご希望の方へ</h2>
+                        <p class="section-description">既にライバーとして活動をされている方、またこれからライバーを目指したい方で321への所属をご希望の方はこちらからご相談ください。</p>
+                        <a href="#howto" class="cta-button">
+                            ライバー新規登録についてはこちら
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer - 321.inc Style -->
+    <footer class="footer-321">
+        <div class="footer-container-321">
+            <div class="footer-top">
+                <div class="footer-logo-section">
+                    <div class="footer-logo">OICOT FUKUI</div>
+                </div>
+                
+                <div class="footer-links-grid">
+                    <div class="footer-column">
+                        <h3>321とは</h3>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h3>数字で見る321</h3>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h3>News</h3>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h3>Event</h3>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h3>Liver Profile</h3>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h3>For Liver</h3>
+                        <div class="footer-links">
+                            <a href="#voices">ライバー募集情報</a>
+                            <a href="#interview">ライバーインタビュー</a>
+                            <a href="#manager">マネージャーインタビュー</a>
+                            <a href="#original">オリジナルBGM</a>
+                            <a href="#shop">321オリジナルショップ</a>
+                        </div>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h3>Comics</h3>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h3>Contact</h3>
+                        <div class="footer-links">
+                            <a href="#contact">所属ライバーの営業の方はこちら</a>
+                            <a href="#howto">ライバーになりたい営業の方はこちら</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Advanced Loading Screen with Sequential Animation
+        window.addEventListener('load', function() {
+            const loading = document.getElementById('loading');
+            const header = document.getElementById('header');
+            const heroContent = document.querySelector('.hero-content');
+            const marqueeContainer = document.querySelector('.marquee-container');
+            
+            // Show header and hero content after loading
+            setTimeout(() => {
+                // Start exit animation
+                loading.style.opacity = '0';
+                loading.style.transform = 'scale(1.1)';
+                
+                setTimeout(() => {
+                    loading.style.display = 'none';
+                    
+                    // Show navigation
+                    header.classList.add('show');
+                    
+                    // Show marquee animation
+                    if (marqueeContainer) {
+                        marqueeContainer.style.opacity = '1';
+                        marqueeContainer.style.transform = 'translateX(0)';
+                    }
+                    
+                    // Animate hero content
+                    setTimeout(() => {
+                        heroContent.classList.add('animate');
+                    }, 200);
+                    
+                    // Animate sections on scroll
+                    initSectionAnimations();
+                    
+                }, 800);
+            }, 3000);
+        });
+
+        // Section Animation System
+        function initSectionAnimations() {
+            const sections = document.querySelectorAll('.section');
+            const animationObserver = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animate');
+                    }
+                });
+            }, {
+                threshold: 0.1,
+                rootMargin: '0px 0px -100px 0px'
+            });
+
+            sections.forEach(section => {
+                animationObserver.observe(section);
+            });
+        }
+
+        // Header Scroll Effect
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Mobile Navigation
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('navMenu');
+        
+        hamburger.addEventListener('click', function() {
+            navMenu.classList.toggle('active');
+        });
+
+        // Smooth Scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+                navMenu.classList.remove('active');
+            });
+        });
+
+        // Enhanced Fade In Animation with Stagger Effect
+        const observerOptions = {
+            threshold: 0.15,
+            rootMargin: '0px 0px -80px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    
+                    // Add stagger animation to child elements
+                    const children = entry.target.querySelectorAll('.feature-item, .voice-card, .data-item, .faq-item, .step-item');
+                    children.forEach((child, index) => {
+                        setTimeout(() => {
+                            child.style.opacity = '1';
+                            child.style.transform = 'translateY(0) scale(1)';
+                        }, index * 100);
+                    });
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+            
+            // Set initial states for child animations
+            const children = el.querySelectorAll('.feature-item, .voice-card, .data-item, .faq-item, .step-item');
+            children.forEach(child => {
+                child.style.opacity = '0';
+                child.style.transform = 'translateY(30px) scale(0.95)';
+                child.style.transition = 'all 0.6s cubic-bezier(0.22, 1, 0.36, 1)';
+            });
+        });
+
+        // Ranking Tabs
+        const rankingTabs = document.querySelectorAll('.ranking-tab');
+        const expertRanking = document.getElementById('expertRanking');
+        const standardRanking = document.getElementById('standardRanking');
+
+        rankingTabs.forEach(tab => {
+            tab.addEventListener('click', function() {
+                rankingTabs.forEach(t => t.classList.remove('active'));
+                this.classList.add('active');
+                
+                if (this.dataset.tab === 'expert') {
+                    expertRanking.style.display = 'block';
+                    standardRanking.style.display = 'none';
+                } else {
+                    expertRanking.style.display = 'none';
+                    standardRanking.style.display = 'block';
+                }
+            });
+        });
+
+        // FAQ Accordion
+        const faqItems = document.querySelectorAll('.faq-item');
+        
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            question.addEventListener('click', function() {
+                const isActive = item.classList.contains('active');
+                
+                // Close all FAQ items
+                faqItems.forEach(faq => faq.classList.remove('active'));
+                
+                // Open clicked item if it wasn't active
+                if (!isActive) {
+                    item.classList.add('active');
+                }
+            });
+        });
+
+        // Form Submission
+        const registrationForm = document.getElementById('registrationForm');
+        registrationForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Validate form
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const privacy = document.getElementById('privacy').checked;
+            
+            if (!name || !email || !privacy) {
+                alert('必須項目を入力してください。');
+                return;
+            }
+            
+            // Simulate form submission
+            alert('登録申し込みを受け付けました。担当者から3営業日以内にご連絡いたします。');
+            registrationForm.reset();
+        });
+
+        // Performance Optimization - Image Lazy Loading with Fade In
+        if ('IntersectionObserver' in window) {
+            const imageObserver = new IntersectionObserver(function(entries, observer) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        img.style.opacity = '0';
+                        img.style.transition = 'opacity 0.5s ease';
+                        
+                        if (img.dataset.src) {
+                            img.src = img.dataset.src;
+                        }
+                        
+                        img.onload = function() {
+                            img.style.opacity = '1';
+                            img.classList.remove('lazy');
+                        };
+                        
+                        observer.unobserve(img);
+                    }
+                });
+            });
+
+            document.querySelectorAll('img[data-src]').forEach(img => {
+                imageObserver.observe(img);
+            });
+        }
+
+        // Add Magnetic Button Effect
+        document.querySelectorAll('.btn').forEach(button => {
+            button.addEventListener('mouseenter', function(e) {
+                this.style.transform = 'translateY(-4px) scale(1.05)';
+            });
+            
+            button.addEventListener('mouseleave', function(e) {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+            
+            button.addEventListener('mousemove', function(e) {
+                const rect = this.getBoundingClientRect();
+                const x = e.clientX - rect.left - rect.width / 2;
+                const y = e.clientY - rect.top - rect.height / 2;
+                
+                this.style.transform = `translateY(-4px) scale(1.05) translate(${x * 0.1}px, ${y * 0.1}px)`;
+            });
+        });
+
+        // Parallax Effect for Hero Section
+        window.addEventListener('scroll', function() {
+            const scrolled = window.pageYOffset;
+            const parallaxElements = document.querySelectorAll('.hero');
+            
+            parallaxElements.forEach(element => {
+                const speed = 0.5;
+                element.style.transform = `translateY(${scrolled * speed}px)`;
+            });
+        });
+
+        // Add Page Transition Effect
+        document.addEventListener('DOMContentLoaded', function() {
+            document.body.style.opacity = '0';
+            document.body.style.transform = 'translateY(30px)';
+            document.body.style.transition = 'all 0.8s cubic-bezier(0.22, 1, 0.36, 1)';
+            
+            setTimeout(() => {
+                document.body.style.opacity = '1';
+                document.body.style.transform = 'translateY(0)';
+            }, 100);
+        });
+    </script>
+
+    <!-- Schema.org Structured Data -->
+    <script>
+        // FAQ functionality for 321.inc style FAQ section
+        document.addEventListener('DOMContentLoaded', function() {
+            const faqQuestions = document.querySelectorAll('.faq-question-321');
+            
+            faqQuestions.forEach(question => {
+                question.addEventListener('click', function() {
+                    const faqItem = this.parentNode;
+                    const isActive = faqItem.classList.contains('active');
+                    
+                    // Close all FAQ items
+                    document.querySelectorAll('.faq-item-321').forEach(item => {
+                        item.classList.remove('active');
+                    });
+                    
+                    // Toggle current item
+                    if (!isActive) {
+                        faqItem.classList.add('active');
+                    }
+                });
+            });
+
+            // Existing FAQ functionality (keep original FAQ working)
+            const originalFaqQuestions = document.querySelectorAll('.faq-question');
+            
+            originalFaqQuestions.forEach(question => {
+                question.addEventListener('click', function() {
+                    const faqItem = this.parentNode;
+                    const isActive = faqItem.classList.contains('active');
+                    
+                    // Close all FAQ items
+                    document.querySelectorAll('.faq-item').forEach(item => {
+                        item.classList.remove('active');
+                    });
+                    
+                    // Toggle current item
+                    if (!isActive) {
+                        faqItem.classList.add('active');
+                    }
+                });
+            });
+        });
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "OICOT FUKUI",
+        "url": "https://oicot-fukui.com",
+        "logo": "https://oicot-fukui.com/logo.png",
+        "description": "福井発の地方エンタメ事務所。ライバー・タレントマネジメント",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "中央1-2-1 FUKUI TOWER 5F",
+            "addressLocality": "福井市",
+            "addressRegion": "福井県",
+            "postalCode": "910-0006",
+            "addressCountry": "JP"
+        },
+        "contactPoint": {
+            "@type": "ContactPoint",
+            "contactType": "customer service",
+            "url": "https://oicot-fukui.com#contact"
+        }
+    }
+    </script>
+</body>
+</html>

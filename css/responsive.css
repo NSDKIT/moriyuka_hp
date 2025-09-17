@@ -196,8 +196,10 @@
     }
     
     .profbox img {
-        width: 180px;
-        height: 180px;
+        width: 100%; /* 中央1/3いっぱいの幅 */
+        height: auto; /* 縦横比を保持 */
+        max-width: 29vw; /* 中央1/3エリアの最大幅 */
+        border-radius: 0; /* 丸型を解除 */
     }
     
     .profbox section {
@@ -232,6 +234,41 @@
     
     body {
         background-color: #ffffff; /* 白い背景 */
+    }
+    
+    /* タブレット縦向きでの各セクション背景色設定 */
+    #profile {
+        background-color: #c9d9ed; /* ライトブルー */
+    }
+    
+    #oicot {
+        background-color: #ffffff; /* 白 */
+    }
+    
+    #sns {
+        background-color: #c9d9ed; /* ライトブルー */
+    }
+    
+    #news {
+        background-color: #ffffff; /* 白 */
+    }
+    
+    #works {
+        background-color: #c9d9ed; /* ライトブルー */
+    }
+    
+    #contact {
+        background-color: #ffffff; /* 白 */
+    }
+    
+    /* タブレット用セクション内の.topboxは透明背景に */
+    #profile .topbox,
+    #oicot .topbox,
+    #sns .topbox,
+    #news .topbox,
+    #works .topbox,
+    #contact .topbox {
+        background-color: transparent;
     }
     
     header {
@@ -275,8 +312,10 @@
     }
     
     .profbox img {
-        width: 160px;
-        height: 160px;
+        width: 100%; /* 全幅を使用 */
+        height: auto; /* 縦横比を保持 */
+        max-width: 350px; /* モバイルでの適切な最大幅 */
+        border-radius: 0; /* 丸型を解除 */
     }
     
     .profbox section {
@@ -312,6 +351,18 @@
         max-width: 400px; /* SNSセクションと同じ幅 */
     }
     
+    .worklist li a {
+        display: flex;
+        align-items: center;
+        justify-content: center; /* 中央揃え */
+        padding: 15px; /* SNSセクションと同じパディング */
+    }
+    
+    .worklist li a p {
+        text-align: center; /* テキストを中央揃え */
+        width: 100%; /* 全幅を使用 */
+    }
+    
     .newslist li {
         flex-direction: column;
         gap: 5px;
@@ -335,6 +386,41 @@
     
     body {
         background-color: #ffffff; /* 白い背景 */
+    }
+    
+    /* モバイル横向きでの各セクション背景色設定 */
+    #profile {
+        background-color: #c9d9ed; /* ライトブルー */
+    }
+    
+    #oicot {
+        background-color: #ffffff; /* 白 */
+    }
+    
+    #sns {
+        background-color: #c9d9ed; /* ライトブルー */
+    }
+    
+    #news {
+        background-color: #ffffff; /* 白 */
+    }
+    
+    #works {
+        background-color: #c9d9ed; /* ライトブルー */
+    }
+    
+    #contact {
+        background-color: #ffffff; /* 白 */
+    }
+    
+    /* モバイル横向き用セクション内の.topboxは透明背景に */
+    #profile .topbox,
+    #oicot .topbox,
+    #sns .topbox,
+    #news .topbox,
+    #works .topbox,
+    #contact .topbox {
+        background-color: transparent;
     }
     
     .hamburger-menu {
@@ -387,8 +473,10 @@
     }
     
     .profbox img {
-        width: 140px;
-        height: 140px;
+        width: 100%; /* 全幅を使用 */
+        height: auto; /* 縦横比を保持 */
+        max-width: 350px; /* モバイルでの適切な最大幅 */
+        border-radius: 0; /* 丸型を解除 */
     }
     
     .midashi {
@@ -429,9 +517,21 @@
     }
     
     .worklist li {
-        padding: 20px 12px;
-        background: #e8f1f8; /* 白よりのライトブルー */
+        background: #ffffff; /* 白い背景（SNSセクションと同じ） */
         border-radius: 10px; /* 角を丸く */
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* SNSセクションと同じシャドウ */
+    }
+    
+    .worklist li a {
+        display: flex;
+        align-items: center;
+        justify-content: center; /* 中央揃え */
+        padding: 12px; /* SNSセクションと同じパディング（12px） */
+    }
+    
+    .worklist li a p {
+        text-align: center; /* テキストを中央揃え */
+        width: 100%; /* 全幅を使用 */
     }
     
 
@@ -469,6 +569,41 @@
     body {
         background-color: #ffffff; /* 白い背景 */
     }
+    
+    /* 携帯端末での各セクション背景色設定 */
+    #profile {
+        background-color: #c9d9ed; /* ライトブルー */
+    }
+    
+    #oicot {
+        background-color: #ffffff; /* 白 */
+    }
+    
+    #sns {
+        background-color: #c9d9ed; /* ライトブルー */
+    }
+    
+    #news {
+        background-color: #ffffff; /* 白 */
+    }
+    
+    #works {
+        background-color: #c9d9ed; /* ライトブルー */
+    }
+    
+    #contact {
+        background-color: #ffffff; /* 白 */
+    }
+    
+    /* モバイル用セクション内の.topboxは透明背景に */
+    #profile .topbox,
+    #oicot .topbox,
+    #sns .topbox,
+    #news .topbox,
+    #works .topbox,
+    #contact .topbox {
+        background-color: transparent;
+    }
 }
 
 /* Mobile Portrait (320px - 480px) */
@@ -481,6 +616,41 @@
     
     body {
         background-color: #ffffff; /* 白い背景 */
+    }
+    
+    /* 小型携帯端末での各セクション背景色設定 */
+    #profile {
+        background-color: #c9d9ed; /* ライトブルー */
+    }
+    
+    #oicot {
+        background-color: #ffffff; /* 白 */
+    }
+    
+    #sns {
+        background-color: #c9d9ed; /* ライトブルー */
+    }
+    
+    #news {
+        background-color: #ffffff; /* 白 */
+    }
+    
+    #works {
+        background-color: #c9d9ed; /* ライトブルー */
+    }
+    
+    #contact {
+        background-color: #ffffff; /* 白 */
+    }
+    
+    /* 小型モバイル用セクション内の.topboxは透明背景に */
+    #profile .topbox,
+    #oicot .topbox,
+    #sns .topbox,
+    #news .topbox,
+    #works .topbox,
+    #contact .topbox {
+        background-color: transparent;
     }
     
     .hamburger-menu {
@@ -544,8 +714,10 @@
     }
     
     .profbox img {
-        width: 120px;
-        height: 120px;
+        width: 100%; /* 全幅を使用 */
+        height: auto; /* 縦横比を保持 */
+        max-width: 350px; /* モバイルでの適切な最大幅 */
+        border-radius: 0; /* 丸型を解除 */
     }
     
     .midashi {
@@ -571,14 +743,14 @@
     }
     
     .snslist li {
-        background: #e8f1f8; /* WORKSセクションと同じ白よりのライトブルー */
+        background: #ffffff; /* 白い背景 */
         border-radius: 10px;
-        box-shadow: none;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* 軽いシャドウ */
         border: none;
     }
     
     .snslist li a {
-        padding: 10px;
+        padding: 10px; /* 元のパディングに戻す */
     }
     
     .snslist li a img {
@@ -618,12 +790,24 @@
     }
     
     .worklist li {
-        padding: 15px 10px;
-        background: #e8f1f8; /* 白よりのライトブルー */
+        background: #ffffff; /* 白い背景（SNSセクションと同じ） */
         border-radius: 8px; /* 角を丸く */
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* SNSセクションと同じシャドウ */
     }
     
-    .worklist li img:first-child {
+    .worklist li a {
+        display: flex;
+        align-items: center;
+        justify-content: center; /* 中央揃え */
+        padding: 10px; /* SNSセクションと同じパディング */
+    }
+    
+    .worklist li a p {
+        text-align: center; /* テキストを中央揃え */
+        width: 100%; /* 全幅を使用 */
+    }
+    
+    .worklist li img {
         display: none; /* Hide images since we're using text titles */
     }
     
@@ -680,6 +864,41 @@
         background-color: #ffffff; /* 白い背景 */
     }
     
+    /* 最小モバイルでの各セクション背景色設定 */
+    #profile {
+        background-color: #c9d9ed; /* ライトブルー */
+    }
+    
+    #oicot {
+        background-color: #ffffff; /* 白 */
+    }
+    
+    #sns {
+        background-color: #c9d9ed; /* ライトブルー */
+    }
+    
+    #news {
+        background-color: #ffffff; /* 白 */
+    }
+    
+    #works {
+        background-color: #c9d9ed; /* ライトブルー */
+    }
+    
+    #contact {
+        background-color: #ffffff; /* 白 */
+    }
+    
+    /* 最小モバイル用セクション内の.topboxは透明背景に */
+    #profile .topbox,
+    #oicot .topbox,
+    #sns .topbox,
+    #news .topbox,
+    #works .topbox,
+    #contact .topbox {
+        background-color: transparent;
+    }
+    
     .hamburger-menu {
         top: 8px;
         right: 8px;
@@ -717,8 +936,10 @@
     }
     
     .profbox img {
-        width: 100px;
-        height: 100px;
+        width: 100%; /* 全幅を使用 */
+        height: auto; /* 縦横比を保持 */
+        max-width: 350px; /* モバイルでの適切な最大幅 */
+        border-radius: 0; /* 丸型を解除 */
     }
     
     .midashi {
@@ -743,7 +964,7 @@
         font-size: 11px;
     }
     
-    .worklist li img:first-child {
+    .worklist li img {
         display: none; /* Hide images since we're using text titles */
     }
     
@@ -773,6 +994,41 @@
     
     body {
         background-color: #ffffff; /* 白い背景 */
+    }
+    
+    /* 横向きモバイルでの各セクション背景色設定 */
+    #profile {
+        background-color: #c9d9ed; /* ライトブルー */
+    }
+    
+    #oicot {
+        background-color: #ffffff; /* 白 */
+    }
+    
+    #sns {
+        background-color: #c9d9ed; /* ライトブルー */
+    }
+    
+    #news {
+        background-color: #ffffff; /* 白 */
+    }
+    
+    #works {
+        background-color: #c9d9ed; /* ライトブルー */
+    }
+    
+    #contact {
+        background-color: #ffffff; /* 白 */
+    }
+    
+    /* 横向きモバイル用セクション内の.topboxは透明背景に */
+    #profile .topbox,
+    #oicot .topbox,
+    #sns .topbox,
+    #news .topbox,
+    #works .topbox,
+    #contact .topbox {
+        background-color: transparent;
     }
     
     .hamburger-menu {
