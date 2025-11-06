@@ -59,23 +59,19 @@ body {
 }
 
 /* 3等分背景レイアウト */
-body::before,
-body::after {
+body::before {
     content: '';
     position: fixed;
     top: 0;
-    width: 33.333vw; /* 画面幅の1/3 */
+    left: 0;
+    width: 100vw; /* 全幅 */
     height: 100vh;
-    background-color: #c9d9ed;
+    background: linear-gradient(90deg, #999999 0%, #ffffff 100%); /* 左グレー→右白 */
     z-index: -1; /* コンテンツの背後に配置 */
 }
 
-body::before {
-    left: 0; /* 左1/3 */
-}
-
 body::after {
-    right: 0; /* 右1/3 */
+    display: none; /* 片側擬似要素は不要 */
 }
 
 /* Section Background Colors - 各セクションの背景色 */
