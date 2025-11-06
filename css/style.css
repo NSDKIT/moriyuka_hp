@@ -64,14 +64,27 @@ body::before {
     position: fixed;
     top: 0;
     left: 0;
-    width: 100vw; /* 全幅 */
+    width: 33.333vw; /* 左1/3 */
     height: 100vh;
-    background: linear-gradient(90deg, #999999 0%, #ffffff 100%); /* 左グレー→右白 */
+    background: linear-gradient(90deg, #999999 0%, #ffffff 100%); /* 左グレー→右白（全体グラデーションの左端部分を表示） */
+    background-repeat: no-repeat;
+    background-size: 100vw 100vh; /* ビューポート全体のグラデーションを基準にする */
+    background-position: left top; /* 左端を表示 */
     z-index: -1; /* コンテンツの背後に配置 */
 }
 
 body::after {
-    display: none; /* 片側擬似要素は不要 */
+    content: '';
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 33.333vw; /* 右1/3 */
+    height: 100vh;
+    background: linear-gradient(90deg, #999999 0%, #ffffff 100%); /* 左グレー→右白（全体グラデーションの右端部分を表示） */
+    background-repeat: no-repeat;
+    background-size: 100vw 100vh; /* ビューポート全体のグラデーションを基準にする */
+    background-position: right top; /* 右端を表示 */
+    z-index: -1; /* コンテンツの背後に配置 */
 }
 
 /* Section Background Colors - 各セクションの背景色 */
